@@ -1,0 +1,12 @@
+store_items
+id
+item_title varchar
+item_url   varchar
+item_price decimal 7,2
+item_description text
+big_pic varchar
+small_pic varchar
+was_price decimal 7,2
+created_at
+updated_at
+deleted_at
