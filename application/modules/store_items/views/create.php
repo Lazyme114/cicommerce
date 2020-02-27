@@ -1,9 +1,11 @@
 <h1>Add New Item</h1>
 
+<?php echo validation_errors("<p style='color: red'>", "</p>"); ?>
+
 <div class="row-fluid sortable">
 	<div class="box span12">
 		<div class="box-header" data-original-title>
-			<h2><i class="halflings-icon white edit"></i><span class="break"></span>Form Elements</h2>
+			<h2><i class="halflings-icon white edit"></i><span class="break"></span>Item Details</h2>
 			<div class="box-icon">
 				<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 				<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -11,35 +13,43 @@
 			</div>
 		</div>
 		<div class="box-content">
-			<form class="form-horizontal">
+			<form class="form-horizontal" action="<?php echo base_url(); ?>store_items/create" method="post">
 				<fieldset>
 					<div class="control-group">
-						<label class="control-label" for="typeahead">Auto complete </label>
+						<label class="control-label" for="item_title">Item Title </label>
 						<div class="controls">
-							<input type="text" class="span6">
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="date01">Date input</label>
-						<div class="controls">
-							<input type="text" class="input-xlarge datepicker" id="date01" value="02/16/12">
+							<input type="text" class="span5" name="item_title" id="item_title" value="<?php echo $item_title; ?>">
 						</div>
 					</div>
 
 					<div class="control-group">
+						<label class="control-label" for="item_price">Item Price </label>
+						<div class="controls">
+							<input type="text" class="span5" name="item_price" id="item_price" value="<?php echo $item_price; ?>">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="was_price">Was Price <span style="color: green; font-size: 0.7em">(Optional)</span> </label>
+						<div class="controls">
+							<input type="text" class="span5" name="was_price" id="was_price" value="<?php echo $was_price; ?>">
+						</div>
+					</div>
+
+					<!-- <div class="control-group">
 						<label class="control-label" for="fileInput">File input</label>
 						<div class="controls">
 							<input class="input-file uniform_on" id="fileInput" type="file">
 						</div>
-					</div>          
+					</div>    -->       
 					<div class="control-group hidden-phone">
-						<label class="control-label" for="textarea2">Textarea WYSIWYG</label>
+						<label class="control-label" for="textarea2">Item Description</label>
 						<div class="controls">
-							<textarea class="cleditor" id="textarea2" rows="3"></textarea>
+							<textarea class="cleditor" id="textarea2" name="item_description" rows="3"><?php $item_description; ?></textarea>
 						</div>
 					</div>
 					<div class="form-actions">
-						<button type="submit" class="btn btn-primary">Save changes</button>
+						<button type="submit" class="btn btn-primary" name="submit" value="submit">Save changes</button>
 						<button type="reset" class="btn">Cancel</button>
 					</div>
 				</fieldset>

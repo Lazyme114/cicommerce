@@ -22,12 +22,48 @@ class Store_items extends MX_Controller
 	{
 		$this->load->module('site_security');
 		$this->site_security->_make_sure_is_admin();
+		$data = $this->fetch_data_from_post();
+		$submit = $this->input->post("submit", TRUE);
+		if ($submit == "submit")
+		{
+
+			$this->load->library('form_validation');
+			$this->form_validation->set_rules('item_title', 'Item Title', 'required|max_length[200]');
+			$this->form_validation->set_rules('item_price', 'Item Price', 'required|numeric');
+			$this->form_validation->set_rules('was_price', 'Was Price', 'numeric');
+			$this->form_validation->set_rules('item_description', 'Item Description', 'required');
+
+			if ($this->form_validation->run() == TRUE) {
+				echo "well done"; die;
+			}
+		}
+
 
 		$data['view_module'] = "store_items";
 		$data['view_file'] = "create";
 		$this->load->module('templates');
 		$this->templates->admin($data);
 	}
+
+
+	private function fetch_data_from_post()
+	{
+		$data["item_title"] = $this->input->post("item_title", TRUE);
+		$data["item_price"] = $this->input->post("item_price", TRUE);
+		$data["was_price"] = $this->input->post("was_price", TRUE);
+		$data["item_description"] = $this->input->post("item_description", TRUE);
+		return $data;
+	}
+
+	private function fetch_data_from_db($update_id = NULL)
+	{
+		$query = $this->get_where($update_id);
+		return $query->row();
+	}
+
+	// ======================================================
+	// ================== database querie ===================
+	// ======================================================
 
 	public function get($order_by)
 	{

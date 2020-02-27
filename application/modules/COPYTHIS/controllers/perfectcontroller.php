@@ -6,6 +6,11 @@ class Perfectcontroller extends MX_Controller
 		parent::__construct();
 	}
 
+
+	// ======================================================
+	// ================== database querie ===================
+	// ======================================================
+
 	public function get($order_by)
 	{
 		$this->load->model('mdl_perfectcontroller');
