@@ -1,6 +1,15 @@
-<h1>Add New Item</h1>
+<h1>
+	<?php echo $heading; ?>
+</h1>
 
 <?php echo validation_errors("<p style='color: red'>", "</p>"); ?>
+
+<?php if($this->session->flashdata('success')): ?>
+	<div class="alert alert-success">
+		<strong>Success!</strong> <?php echo $this->session->flashdata('success'); ?>
+	</div>
+
+<?php endif; ?>
 
 <div class="row-fluid sortable">
 	<div class="box span12">
@@ -13,7 +22,14 @@
 			</div>
 		</div>
 		<div class="box-content">
-			<form class="form-horizontal" action="<?php echo base_url(); ?>store_items/create" method="post">
+			<?php
+			if(isset($update_id)) {
+				$url = base_url()."store_items/update/".$update_id;
+			} else {
+				$url = base_url()."store_items/create";
+			}
+			?>
+			<form class="form-horizontal" action="<?php echo $url; ?>" method="post">
 				<fieldset>
 					<div class="control-group">
 						<label class="control-label" for="item_title">Item Title </label>
@@ -45,7 +61,7 @@
 					<div class="control-group hidden-phone">
 						<label class="control-label" for="textarea2">Item Description</label>
 						<div class="controls">
-							<textarea class="cleditor" id="textarea2" name="item_description" rows="3"><?php $item_description; ?></textarea>
+							<textarea class="cleditor" id="textarea2" name="item_description" rows="3"><?php echo $item_description; ?></textarea>
 						</div>
 					</div>
 					<div class="form-actions">

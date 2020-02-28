@@ -51,6 +51,7 @@ class Perfectcontroller extends MX_Controller
 	{
 		$this->load->model('mdl_perfectcontroller');
 		$this->mdl_perfectcontroller->_insert($data);
+		return $this->db->insert_id();
 	}
 
 	public function _update($id, $data)

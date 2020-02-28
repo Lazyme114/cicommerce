@@ -7,7 +7,7 @@ class Mdl_store_items extends CI_Model
     }
 
     public function get_table() {
-        $table = "tablename";
+        $table = "store_items";
         return $table;
     }
 
