@@ -4,45 +4,80 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
-	<title>Carousel Template · Bootstrap</title>
+	<title>Bulma</title>
 
 	<!-- Bootstrap core CSS -->
-	<link href="<?php echo base_url(); ?>assets/frontend/css/bootstrap.css" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>assets/frontend/css/bulma.css" rel="stylesheet">
 	<!-- Custom styles -->
 	<link href="<?php echo base_url(); ?>assets/frontend/css/main.css" rel="stylesheet">
 </head>
 <body>
 	<header>
-		<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
-			<a class="navbar-brand" href="#">Logo</a>
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="#">Link</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Link</a>
-				</li>
-			</ul>
+		<nav class="navbar is-danger">
+			<div class="navbar-brand">
+				<a class="navbar-item" href="https://bulma.io">
+
+					<img src="https://bulma.io/images/bulma-logo-white.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+
+				</a>
+				<div class="navbar-burger burger" data-target="navMenuColordanger-example">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+
+			<div id="navMenuColordanger-example" class="navbar-menu">
+				<div class="navbar-start">
+					<a class="navbar-item" href="https://bulma.io/">
+						Home
+					</a>
+				</div>
+			</div>
 		</nav>
 	</header>
 
 	<main role="main">
-		<div class="container marketing">
+		<div class="container">
 			<?php 
 			if(isset($view_file)) {
 				$this->load->view($view_module."/".$view_file);
 			}
-
 			?>
 		</div>
 
-		<!-- FOOTER -->
-		<footer class="container">
-			<p class="float-right"><a href="#">Back to top</a></p>
-			<p>&copy; 2017-2019 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+		<footer class="footer">
+			<div class="content has-text-centered">
+				<p>
+					<strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+					<a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+					is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+				</p>
+			</div>
 		</footer>
 	</main>
 	<script src="<?php echo base_url(); ?>assets/frontend/js/jquery.js"></script>
-	<script src="<?php echo base_url(); ?>assets/frontend/js/bootstrap.bundle.js"></script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+			if ($navbarBurgers.length > 0) {
+
+				$navbarBurgers.forEach( el => {
+					el.addEventListener('click', () => {
+
+						const target = el.dataset.target;
+						const $target = document.getElementById(target);
+
+						el.classList.toggle('is-active');
+						$target.classList.toggle('is-active');
+
+					});
+				});
+			}
+
+		});
+	</script>
 </body>
 </html>
