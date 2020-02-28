@@ -80,6 +80,11 @@ class Store_items extends MX_Controller
 		$this->templates->admin($data);
 	}
 
+	public function delete($update_id = NULL)
+	{
+		// 
+	}
+
 
 	private function fetch_data_from_post()
 	{
