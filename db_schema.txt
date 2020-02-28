@@ -10,3 +10,13 @@ was_price decimal 7,2
 created_at
 updated_at
 deleted_at
+
+store_item_colors
+id
+item_id
+color
+
+store_item_sizes
+id
+item_id
+size

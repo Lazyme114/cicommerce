@@ -31,6 +31,7 @@ class Store_items extends MX_Controller
 			$this->validate_data();
 			if ($this->form_validation->run() == TRUE) {
 				$data['item_url'] = url_title($data['item_title'], "dash", TRUE);
+				$data['created_at'] = date("Y-m-d H:i:s");
 				$update_id = $this->_insert($data);
 				$this->session->set_flashdata('success', 'Item successfully added!!');
 				redirect('store_items/update/'.$update_id,'refresh');
