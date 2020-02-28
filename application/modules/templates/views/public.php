@@ -8,8 +8,8 @@
 
 	<!-- Bootstrap core CSS -->
 	<link href="<?php echo base_url(); ?>assets/frontend/css/bulma.css" rel="stylesheet">
-	<!-- Custom styles -->
-	<link href="<?php echo base_url(); ?>assets/frontend/css/main.css" rel="stylesheet">
+	<!-- Font awesome -->
+	<link href="<?php echo base_url(); ?>assets/frontend/css/all.css" rel="stylesheet">
 </head>
 <body>
 	<header>

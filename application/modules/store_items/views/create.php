@@ -10,7 +10,6 @@
 	</div>
 
 <?php endif; ?>
-
 <?php if(isset($update_id) && is_numeric($update_id)) { ?>
 	<div class="row-fluid sortable">
 		<div class="box span12">

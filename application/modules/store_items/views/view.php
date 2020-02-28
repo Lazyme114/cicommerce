@@ -10,5 +10,9 @@
 			<?php echo nl2br($item_description); ?>
 		</div>
 	</div>
-	<div class="column is-3">Auto</div>
+	<div class="column is-3" style="margin-top: 24px;">
+		<?php 
+		echo Modules::run('cart/_draw_add_to_cart', $update_id);
+		?>
+	</div>
 </div>

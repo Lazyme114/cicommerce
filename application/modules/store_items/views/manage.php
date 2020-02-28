@@ -1,5 +1,9 @@
 <h1>Manage Items</h1>
-
+<p>	
+	<a href="<?php echo base_url(); ?>store_items/create" class="btn btn-primary">
+		Add New Item
+	</a>
+</p>
 <div class="row-fluid sortable">
 	<div class="box span12">
 		<div class="box-header" data-original-title>
