@@ -6,12 +6,12 @@ class Templates extends MX_Controller
 		parent::__construct();
 	}
 
-	public function public_bootstrap($data)
+	public function public($data)
 	{
 		if(!isset($data['view_module'])) {
 			$data['view_module'] = $this->uri->segment(1);
 		}
-		$this->load->view('public_bootstrap', $data);
+		$this->load->view('public', $data);
 	}
 
 	public function public_jqm($data)

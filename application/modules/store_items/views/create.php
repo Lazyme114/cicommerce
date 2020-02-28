@@ -23,7 +23,7 @@
 				</div>
 			</div>
 			<div class="box-content">
-				<?php if($big_pic == "") { ?>
+				<?php if(isset($big_pic) && $big_pic == "") { ?>
 					<a href="<?php echo base_url(); ?>store_items/upload_image/<?php echo $update_id; ?>" class="btn btn-primary">Upload Item Image</a>
 				<?php } else { ?>
 					<a href="<?php echo base_url(); ?>store_items/delete_image/<?php echo $update_id; ?>" class="btn btn-danger">Delete Item Image</a>
@@ -31,7 +31,8 @@
 				<a href="<?php echo base_url(); ?>store_item_colors/update/<?php echo $update_id; ?>" class="btn btn-primary">Update Item Colors</a>
 				<a href="<?php echo base_url(); ?>store_item_sizes/update/<?php echo $update_id; ?>" class="btn btn-primary">Update Item Sizes</a>
 				<a href="<?php echo base_url(); ?>store_items/<?php echo $update_id; ?>" class="btn btn-primary">Update Item Categories</a>
-				<a href="<?php echo base_url(); ?>store_items/<?php echo $update_id; ?>" class="btn btn-danger">Delete Item</a>
+				<a href="<?php echo base_url(); ?>store_items/deleteconf/<?php echo $update_id; ?>" class="btn btn-danger">Delete Item</a>
+				<a href="<?php echo base_url(); ?>store_items/view/<?php echo $update_id; ?>" class="btn btn-default">View Item in the Shop</a>
 			</div>
 		</div>
 	</div>
@@ -107,7 +108,7 @@
 </div>
 
 
-<?php if ($big_pic != ""){ ?>
+<?php if (isset($big_pic) && $big_pic != ""){ ?>
 	<div class="row-fluid sortable">
 		<div class="box span12">
 			<div class="box-header" data-original-title>

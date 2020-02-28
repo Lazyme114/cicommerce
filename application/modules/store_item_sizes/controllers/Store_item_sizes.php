@@ -47,6 +47,13 @@ class Store_item_sizes extends MX_Controller
 		redirect('store_item_sizes/update/'.$item_id);
 	}
 
+	public function _delete_for_item($item_id)
+	{
+		$this->db->where("item_id", $item_id);
+		$this->db->delete("store_item_sizes");
+		return TRUE;
+	}
+
 
 	// ======================================================
 	// ================== database querie ===================

@@ -9,6 +9,22 @@ class Store_items extends MX_Controller
 		$this->form_validation->CI =& $this;
 	}
 
+	public function view($update_id)
+	{
+		if(!is_numeric($update_id)) {
+			redirect("site_security/not_allowed");
+		}
+
+		$this->load->module('site_security');
+		$this->site_security->_make_sure_is_admin();
+
+		$data = $this->fetch_data_from_db($update_id);
+		$data['update_id'] =  $update_id;
+		$data['view_file'] = "view";
+		$this->load->module("templates");
+		$this->templates->public($data);
+	}
+
 	public function manage()
 	{
 		$this->load->module('site_security');
@@ -67,9 +83,37 @@ class Store_items extends MX_Controller
 		$this->templates->admin($data);
 	}
 
+	public function deleteconf($update_id)
+	{
+		if(!is_numeric($update_id)) {
+			redirect('site_security/not_allowed');
+		}
+		$this->load->module('site_security');
+		$this->site_security->_make_sure_is_admin();
+
+		$data['update_id'] = $update_id;
+		$data['heading'] = "Update Item";
+		$data['view_file'] = "deleteconf";
+		$this->load->module('templates');
+		$this->templates->admin($data);
+	}
+
 	public function delete($update_id = NULL)
 	{
-		// 
+		$this->load->module("store_item_colors");
+		$this->load->module("store_item_sizes");
+		if(!is_numeric($update_id)) {
+			redirect('site_security/not_allowed');
+		}
+		$this->load->module('site_security');
+		$this->site_security->_make_sure_is_admin();
+
+		$this->store_item_colors->_delete_for_item($update_id);
+		$this->store_item_sizes->_delete_for_item($update_id);
+		$this->_delete($update_id);
+		$this->delete_image($update_id, "main");
+		$this->session->set_flashdata("success", "Item deleted successfully!!");
+		redirect("store_items/manage");
 	}
 
 	public function upload_image($update_id = NULL)
@@ -115,7 +159,7 @@ class Store_items extends MX_Controller
 		$this->templates->admin($data);
 	}
 
-	public function delete_image($update_id = NULL)
+	public function delete_image($update_id = NULL, $return_type = NULL)
 	{
 		$data = $this->fetch_data_from_db($update_id);
 		$big_pic = $data['big_pic'];
@@ -136,6 +180,11 @@ class Store_items extends MX_Controller
 
 		$this->_update($update_id, $data);
 		$this->session->set_flashdata("success", "Image Deleted Successfully!!");
+
+		if($return_type == "main") {
+			redirect("store_items/manage");
+		}
+
 		redirect("store_items/update/".$update_id);
 	}
 

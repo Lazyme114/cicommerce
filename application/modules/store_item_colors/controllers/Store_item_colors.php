@@ -47,6 +47,13 @@ class Store_item_colors extends MX_Controller
 		redirect('store_item_colors/update/'.$item_id);
 	}
 
+	public function _delete_for_item($item_id)
+	{
+		$this->db->where("item_id", $item_id);
+		$this->db->delete("store_item_colors");
+		return TRUE;
+	}
+
 
 	// ======================================================
 	// ================== database querie ===================
