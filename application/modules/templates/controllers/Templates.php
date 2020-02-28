@@ -6,24 +6,27 @@ class Templates extends MX_Controller
 		parent::__construct();
 	}
 
-	public function test()
-	{
-		$data = [];
-		$this->admin($data);
-	}
-
 	public function public_bootstrap($data)
 	{
+		if(!isset($data['view_module'])) {
+			$data['view_module'] = $this->uri->segment(1);
+		}
 		$this->load->view('public_bootstrap', $data);
 	}
 
 	public function public_jqm($data)
 	{
+		if(!isset($data['view_module'])) {
+			$data['view_module'] = $this->uri->segment(1);
+		}
 		$this->load->view('public_jqm', $data);
 	}
 
 	public function admin($data)
 	{
+		if(!isset($data['view_module'])) {
+			$data['view_module'] = $this->uri->segment(1);
+		}
 		$this->load->view('admin', $data);
 	}
 

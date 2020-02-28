@@ -14,7 +14,7 @@ class Store_items extends MX_Controller
 		$this->load->module('site_security');
 		$this->site_security->_make_sure_is_admin();
 
-		$data['view_module'] = "store_items";
+		$data['store_items'] = $this->get('item_title');
 		$data['view_file'] = "manage";
 		$this->load->module('templates');
 		$this->templates->admin($data);
@@ -28,23 +28,15 @@ class Store_items extends MX_Controller
 		$submit = $this->input->post("submit", TRUE);
 		if ($submit == "submit")
 		{
-
-			
-			$this->form_validation->set_rules('item_title', 'Item Title', 'required|max_length[200]|callback_item_check');
-			$this->form_validation->set_rules('item_price', 'Item Price', 'required|numeric');
-			$this->form_validation->set_rules('was_price', 'Was Price', 'numeric');
-			$this->form_validation->set_rules('item_description', 'Item Description', 'required');
-
+			$this->validate_data();
 			if ($this->form_validation->run() == TRUE) {
 				$data['item_url'] = url_title($data['item_title'], "dash", TRUE);
-
 				$update_id = $this->_insert($data);
 				$this->session->set_flashdata('success', 'Item successfully added!!');
 				redirect('store_items/update/'.$update_id,'refresh');
 			}
 		}
 		$data['heading'] = "Add Item";
-		$data['view_module'] = "store_items";
 		$data['view_file'] = "create";
 		$this->load->module('templates');
 		$this->templates->admin($data);
@@ -58,12 +50,7 @@ class Store_items extends MX_Controller
 		$submit = $this->input->post("submit", TRUE);
 		if ($submit == "submit")
 		{
-			
-			$this->form_validation->set_rules('item_title', 'Item Title', 'required|max_length[200]|callback_item_check');
-			$this->form_validation->set_rules('item_price', 'Item Price', 'required|numeric');
-			$this->form_validation->set_rules('was_price', 'Was Price', 'numeric');
-			$this->form_validation->set_rules('item_description', 'Item Description', 'required');
-
+			$this->validate_data();
 			if ($this->form_validation->run() == TRUE) {
 				$data['item_url'] = url_title($data['item_title'], "dash", TRUE);
 				$this->_update($update_id, $data);
@@ -74,7 +61,6 @@ class Store_items extends MX_Controller
 		$data = $this->fetch_data_from_db($update_id);
 		$data['update_id'] = $update_id;
 		$data['heading'] = "Update Item";
-		$data['view_module'] = "store_items";
 		$data['view_file'] = "create";
 		$this->load->module('templates');
 		$this->templates->admin($data);
@@ -85,6 +71,95 @@ class Store_items extends MX_Controller
 		// 
 	}
 
+	public function upload_image($update_id = NULL)
+	{
+		if(!is_numeric($update_id)) {
+			redirect('site_security/not_allowed');
+		}
+		$this->load->module('site_security');
+		$this->site_security->_make_sure_is_admin();
+
+		$data = $this->fetch_data_from_post();
+		$submit = $this->input->post("submit", TRUE);
+		if ($submit == "submit")
+		{
+			$config['upload_path'] = './uploads/items/big_pics/';
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size'] = 10240;
+			$config['max_width'] = 10240;
+			$config['max_height'] = 7680;
+
+			$this->load->library("upload", $config);
+
+
+			if(! $this->upload->do_upload('image')) {
+				$data['errors'] = array('error' => $this->upload->display_errors());
+			} else {
+				$data = array("upload_data" => $this->upload->data());
+				$upload_data = $data['upload_data'];
+				$file_name = $upload_data['file_name'];
+				$this->_generate_thumbnail($file_name);
+
+				$image_data['big_pic'] = $file_name;
+				$image_data['small_pic'] = $file_name;
+				$this->_update($update_id, $image_data);
+				$this->session->set_flashdata("success", "Image uploaded successfully!!");
+			}
+			
+		}
+		$data['heading'] = "Upload Image";
+		$data['update_id'] = $update_id;
+		$data['view_file'] = "upload_image";
+		$this->load->module('templates');
+		$this->templates->admin($data);
+	}
+
+	public function delete_image($update_id = NULL)
+	{
+		$data = $this->fetch_data_from_db($update_id);
+		$big_pic = $data['big_pic'];
+		$small_pic = $data['small_pic'];
+
+		$big_pic_path = "./uploads/items/big_pics/".$data['big_pic'];
+		$small_pic_path = "./uploads/items/small_pics/".$data['small_pic'];
+
+		if(file_exists($big_pic_path)) {
+			unlink($big_pic_path);
+		}
+		if(file_exists($small_pic_path)) {
+			unlink($small_pic_path);
+		}
+		unset($data);
+
+		$data['big_pic'] = $data['small_pic'] = "";
+
+		$this->_update($update_id, $data);
+		$this->session->set_flashdata("success", "Image Deleted Successfully!!");
+		redirect("store_items/update/".$update_id);
+	}
+
+	private function _generate_thumbnail($file_name)
+	{
+		$config['image_library'] = 'gd2';
+		$config['source_image'] = './uploads/items/big_pics/'.$file_name;
+		$config['new_image'] = './uploads/items/small_pics/'.$file_name;
+		// $config['create_thumb'] = TRUE;
+		$config['maintain_ratio'] = TRUE;
+		$config['width'] = 200;
+		$config['height'] = 200;
+		$this->load->library('image_lib', $config);
+		$this->image_lib->resize();
+	}
+
+	private function validate_data()
+	{
+		$this->form_validation->set_rules('item_title', 'Item Title', 'required|max_length[200]|callback_item_check');
+		$this->form_validation->set_rules('item_price', 'Item Price', 'required|numeric');
+		$this->form_validation->set_rules('was_price', 'Was Price', 'numeric');
+		$this->form_validation->set_rules('item_description', 'Item Description', 'required');
+		$this->form_validation->set_rules('status', 'Status', 'required');
+	}
+
 
 	private function fetch_data_from_post()
 	{
@@ -92,6 +167,7 @@ class Store_items extends MX_Controller
 		$data["item_price"] = $this->input->post("item_price", TRUE);
 		$data["was_price"] = $this->input->post("was_price", TRUE);
 		$data["item_description"] = $this->input->post("item_description", TRUE);
+		$data["status"] = $this->input->post("status", TRUE);
 		return $data;
 	}
 
