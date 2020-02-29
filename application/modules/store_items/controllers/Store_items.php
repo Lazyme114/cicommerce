@@ -44,7 +44,7 @@ class Store_items extends MX_Controller
 		$submit = $this->input->post("submit", TRUE);
 		if ($submit == "submit")
 		{
-			$this->validate_data();
+			$this->_validate_data();
 			if ($this->form_validation->run() == TRUE) {
 				$data['item_url'] = url_title($data['item_title'], "dash", TRUE);
 				$data['created_at'] = date("Y-m-d H:i:s");
@@ -67,7 +67,7 @@ class Store_items extends MX_Controller
 		$submit = $this->input->post("submit", TRUE);
 		if ($submit == "submit")
 		{
-			$this->validate_data();
+			$this->_validate_data();
 			if ($this->form_validation->run() == TRUE) {
 				$data['item_url'] = url_title($data['item_title'], "dash", TRUE);
 				$this->_update($update_id, $data);
@@ -201,7 +201,7 @@ class Store_items extends MX_Controller
 		$this->image_lib->resize();
 	}
 
-	private function validate_data()
+	private function _validate_data()
 	{
 		$this->form_validation->set_rules('item_title', 'Item Title', 'required|max_length[200]|callback_item_check');
 		$this->form_validation->set_rules('item_price', 'Item Price', 'required|numeric');
