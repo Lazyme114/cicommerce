@@ -29,7 +29,7 @@
 				<?php } ?>
 				<a href="<?php echo base_url(); ?>store_item_colors/update/<?php echo $update_id; ?>" class="btn btn-primary">Update Item Colors</a>
 				<a href="<?php echo base_url(); ?>store_item_sizes/update/<?php echo $update_id; ?>" class="btn btn-primary">Update Item Sizes</a>
-				<a href="<?php echo base_url(); ?>store_items/<?php echo $update_id; ?>" class="btn btn-primary">Update Item Categories</a>
+				<a href="<?php echo base_url(); ?>store_cat_assigns/update/<?php echo $update_id; ?>" class="btn btn-primary">Update Item Categories</a>
 				<a href="<?php echo base_url(); ?>store_items/deleteconf/<?php echo $update_id; ?>" class="btn btn-danger">Delete Item</a>
 				<a href="<?php echo base_url(); ?>store_items/view/<?php echo $update_id; ?>" class="btn btn-default">View Item in the Shop</a>
 			</div>

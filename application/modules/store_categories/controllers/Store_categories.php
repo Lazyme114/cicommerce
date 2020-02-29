@@ -138,6 +138,20 @@ class Store_categories extends MX_Controller
 		$this->load->view("sortable_list", $data);
 	}
 
+	public function _get_all_sub_cats_for_dropdown()
+	{
+		$query = $this->db->select(["id", "category_title", "parent_id"])->where("parent_id !=", "0")
+		->order_by("parent_id, category_title")
+		->get("store_categories");
+		$sub_categories = [];
+		foreach($query->result() as $row) {
+			$parent_cat_title = $this->_get_category_title($row->parent_id);
+			$sub_categories[$row->id] = $parent_cat_title. " > " .$row->category_title;
+		}
+
+		return $sub_categories;
+	}
+
 	public function category_check($str)
 	{
 		$category_url = url_title($str, "dash", TRUE);
