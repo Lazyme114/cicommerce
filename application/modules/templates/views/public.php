@@ -29,32 +29,11 @@
 
 			<div id="navbarBasicExample" class="navbar-menu">
 				<div class="navbar-start">
-					<a class="navbar-item">
+					<a href="<?php echo base_url(); ?>" class="navbar-item">
 						Home
 					</a>
 
 					<?php echo Modules::run("store_categories/_draw_top_nav"); ?>
-					<div class="navbar-item has-dropdown is-hoverable">
-						<a class="navbar-link">
-							More
-						</a>
-
-						<div class="navbar-dropdown">
-							<a class="navbar-item">
-								About
-							</a>
-							<a class="navbar-item">
-								Jobs
-							</a>
-							<a class="navbar-item">
-								Contact
-							</a>
-							<hr class="navbar-divider">
-							<a class="navbar-item">
-								Report an issue
-							</a>
-						</div>
-					</div>
 				</div>
 
 				<div class="navbar-end">
@@ -76,8 +55,15 @@
 	<main role="main">
 		<div class="container">
 			<?php 
-			if(isset($webpage)) {
-				echo  nl2br($webpage->page_content);
+			if(isset($page_content)) {
+				echo  nl2br($page_content);
+
+				if($page_url == "") {
+					require_once("homepage_content.php");
+				} elseif($page_url == "contact-us") {
+					echo Modules::run("contact_us/_draw_contact_us_form");
+				}
+
 			} elseif(isset($view_file)) {
 				$this->load->view($view_module."/".$view_file);
 			}

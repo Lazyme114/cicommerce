@@ -6,6 +6,7 @@ class Store_categories extends MX_Controller
 		parent::__construct();
 		$this->load->model('mdl_store_categories');
 		$this->load->library('form_validation');
+		$this->load->library('session');
 		$this->form_validation->CI =& $this;
 	}
 
@@ -93,14 +94,14 @@ class Store_categories extends MX_Controller
 			if ($this->form_validation->run() == TRUE) {
 				$data['category_url'] = url_title($data['category_title'], "dash", TRUE);
 				$this->_update($update_id, $data);
-				$this->session->set_flashdata('success', 'Item successfully updated!!');
+				$this->session->set_flashdata('success', 'Category successfully updated!!');
 				redirect('store_categories/update/'.$update_id,'refresh');
 			}
 		}
 		$data = $this->fetch_data_from_db($update_id);
 		$data['categories'] = $this->_get_dropdown_options($update_id);
 		$data['update_id'] = $update_id;
-		$data['heading'] = "Update Item";
+		$data['heading'] = "Update Category";
 		$data['view_file'] = "create";
 		$this->load->module('templates');
 		$this->templates->admin($data);

@@ -2,6 +2,8 @@
 	<?php echo $heading; ?>
 </h1>
 
+
+
 <?php echo validation_errors("<p style='color: red'>", "</p>"); ?>
 
 <?php if($this->session->flashdata('success')): ?>

@@ -367,6 +367,13 @@
 						</li>
 
 						<li>
+							<a href="<?php echo base_url(); ?>blog/manage">
+								<i class="icon-file-alt"></i>
+								<span class="hidden-tablet">Manage Blog</span>
+							</a>
+						</li>
+
+						<li>
 							<a href="<?php echo base_url(); ?>store_accounts/manage">
 								<i class="icon-user"></i>
 								<span class="hidden-tablet">Accounts</span>
