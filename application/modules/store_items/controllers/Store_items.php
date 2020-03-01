@@ -3,8 +3,8 @@ class Store_items extends MX_Controller
 {
 
 	public function __construct() {
-		$this->load->model('mdl_store_items');
 		parent::__construct();
+		$this->load->model('mdl_store_items');
 		$this->load->library('form_validation');
 		$this->form_validation->CI =& $this;
 	}
@@ -20,6 +20,7 @@ class Store_items extends MX_Controller
 
 		$data = $this->fetch_data_from_db($update_id);
 		$data['update_id'] =  $update_id;
+		$data['view_module'] = "store_items";
 		$data['view_file'] = "view";
 		$this->load->module("templates");
 		$this->templates->public($data);
@@ -225,6 +226,17 @@ class Store_items extends MX_Controller
 	{
 		$query = $this->get_where($update_id);
 		return $query->row_array();
+	}
+
+	public function _get_item_id_from_item_url($item_url)
+	{
+		$query = $this->get_where_custom("item_url", $item_url);
+		$item_id = $query->row()->id;
+
+		if(!isset($item_id)) {
+			$item_id = 0;
+		}
+		return $item_id;
 	}
 
 	public function item_check($str)

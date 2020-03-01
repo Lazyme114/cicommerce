@@ -9,6 +9,23 @@ class Store_categories extends MX_Controller
 		$this->form_validation->CI =& $this;
 	}
 
+	public function view($update_id)
+	{
+		if(!is_numeric($update_id)) {
+			redirect("site_security/not_allowed");
+		}
+
+		$this->load->module('site_security');
+		$this->site_security->_make_sure_is_admin();
+
+		$data = $this->fetch_data_from_db($update_id);
+		$data['update_id'] =  $update_id;
+		$data['view_module'] = "store_categories";
+		$data['view_file'] = "view";
+		$this->load->module("templates");
+		$this->templates->public($data);
+	}
+
 	public function manage()
 	{
 		$this->load->module('site_security');
@@ -154,6 +171,9 @@ class Store_categories extends MX_Controller
 
 	public function _draw_top_nav()
 	{
+		$this->load->module("site_settings");
+		$item_segments = $this->site_settings->_get_items_segments();
+		$data['target_url_start'] = base_url().$item_segments;
 		$data['parent_categories'] = $this->db->select(["id", "category_title", "category_url"])
 		->where("parent_id", "0")
 		->order_by("priority")
@@ -169,6 +189,16 @@ class Store_categories extends MX_Controller
 		->get("store_categories");
 
 		return $sub_categories;
+	}
+
+	public function _get_category_id_from_category_url($category_url)
+	{
+		$query = $this->get_where_custom("category_url", $category_url);
+		$category_id = $query->row()->id;
+		if(!isset($category_id)) {
+			$category_id = 0;
+		}
+		return $category_id;
 	}
 
 	public function category_check($str)
