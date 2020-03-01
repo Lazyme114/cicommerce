@@ -152,6 +152,25 @@ class Store_categories extends MX_Controller
 		return $sub_categories;
 	}
 
+	public function _draw_top_nav()
+	{
+		$data['parent_categories'] = $this->db->select(["id", "category_title", "category_url"])
+		->where("parent_id", "0")
+		->order_by("priority")
+		->get("store_categories");
+		$this->load->view("top_nav", $data);
+	}
+
+	public function _get_sub_cats_for_parent_category($parent_id)
+	{
+		$sub_categories = $this->db->select(["id", "category_title", "category_url"])
+		->where("parent_id", $parent_id)
+		->order_by("priority")
+		->get("store_categories");
+
+		return $sub_categories;
+	}
+
 	public function category_check($str)
 	{
 		$category_url = url_title($str, "dash", TRUE);
