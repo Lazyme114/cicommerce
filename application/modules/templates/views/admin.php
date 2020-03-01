@@ -360,6 +360,13 @@
 						</li>
 
 						<li>
+							<a href="<?php echo base_url(); ?>webpages/manage">
+								<i class="icon-file"></i>
+								<span class="hidden-tablet">CMS</span>
+							</a>
+						</li>
+
+						<li>
 							<a href="<?php echo base_url(); ?>store_accounts/manage">
 								<i class="icon-user"></i>
 								<span class="hidden-tablet">Accounts</span>
