@@ -77,7 +77,7 @@
 		<div class="container">
 			<?php 
 			if(isset($webpage)) {
-				print_r($webpage);
+				echo  nl2br($webpage->page_content);
 			} elseif(isset($view_file)) {
 				$this->load->view($view_module."/".$view_file);
 			}
