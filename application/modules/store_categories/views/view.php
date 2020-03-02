@@ -1,7 +1,11 @@
-<h1 class="is-size-3"><?php echo $category_title; ?></h1>
+<p>
+	<h1 class="is-size-3"><?php echo $category_title; ?></h1>
+</p>
 
-
-
+<div style="margin-top: 20px; margin-bottom: 10px;">
+	<?php echo $my_pagination; ?>
+</div>
+<?php echo $showing_statement; ?>
 <div class="row columns is-multiline">
 	<?php foreach ($store_items->result() as $row): ?>
 		<?php 
@@ -12,7 +16,7 @@
 			<div class="card large">
 				<div class="card-image">
 					<figure class="image">
-						<img src="<?php echo $small_pic_path; ?>" alt="<?php echo $row->item_title; ?>">
+						<img src="<?php echo $small_pic_path; ?>" alt="<?php echo $row->item_title; ?>" title="<?php echo $row->item_title; ?>">
 					</figure>
 				</div>
 				<div class="card-content">
@@ -39,3 +43,4 @@
 		</div>
 	<?php endforeach ?>
 </div>
+<?php echo $my_pagination; ?>
