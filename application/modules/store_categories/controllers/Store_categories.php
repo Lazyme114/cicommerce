@@ -17,9 +17,13 @@ class Store_categories extends MX_Controller
 		}
 
 		$this->load->module('site_security');
+		$this->load->module('site_settings');
 		$this->site_security->_make_sure_is_admin();
 
 		$data = $this->fetch_data_from_db($update_id);
+		$data['currency_symbol'] = $this->site_settings->_get_currency_symbol();
+		$data['item_segments'] = $this->site_settings->_get_item_segments();
+		$data['store_items'] = $this->_get_category_store_items($update_id);
 		$data['update_id'] =  $update_id;
 		$data['view_module'] = "store_categories";
 		$data['view_file'] = "view";
@@ -200,6 +204,16 @@ class Store_categories extends MX_Controller
 			$category_id = 0;
 		}
 		return $category_id;
+	}
+
+	public function _get_category_store_items($update_id)
+	{
+		$this->db->select(["store_items.item_url", "store_items.item_title", "store_items.item_price", "store_items.was_price", "store_items.small_pic"])
+		->from("store_cat_assigns")
+		->join("store_items", "store_cat_assigns.item_id=store_items.id")
+		->where(["store_cat_assigns.category_id" => $update_id, "store_items.status" => 1]);
+
+		return $this->db->get();
 	}
 
 	public function category_check($str)

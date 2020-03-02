@@ -6,6 +6,12 @@ class Site_settings extends MX_Controller
 		parent::__construct();
 	}
 
+	public function _get_currency_symbol()
+	{
+		$symbol = "&pound;";
+		return $symbol;
+	}
+
 	public function _get_item_segments()
 	{
 		// returng the segments for the store-item pages (product pages)
