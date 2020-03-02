@@ -15,7 +15,7 @@ class Blog extends MX_Controller
 		$this->load->module('site_security');
 		$this->site_security->_make_sure_is_admin();
 
-		$data['blog'] = $this->get('blog_url');
+		$data['blog'] = $this->get('date_published desc');
 		$data['view_file'] = "manage";
 		$this->load->module('templates');
 		$this->templates->admin($data);
@@ -208,6 +208,13 @@ class Blog extends MX_Controller
 		$config['height'] = 200;
 		$this->load->library('image_lib', $config);
 		$this->image_lib->resize();
+	}
+
+	public function _draw_feed_hp()
+	{
+		$this->load->helper('text');
+		$data['latest_blogs'] = $this->get_with_limit(3, 0, "date_published desc");
+		$this->load->view("feed_hp", $data);
 	}
 
 	public function blog_check($str)

@@ -25,6 +25,9 @@
 				<thead>
 					<tr>
 						<th>Sn.</th>
+						<th>Picture</th>
+						<th>Date Published</th>
+						<th>Author</th>
 						<th>Blog Entry URL</th>
 						<th>Blog Entry Title</th>
 						<th>Actions</th>
@@ -35,9 +38,20 @@
 						$edit_blog_url = base_url()."blog/update/".$row->id;
 						$delete_blog_url = base_url()."blog/deleteconf/".$row->id;
 						$view_blog_url = base_url().$row->blog_url;
+						$picture = str_replace('.', '_thumb.', $row->picture);
+						$image_url = base_url()."uploads/blogs/".$picture;
 						?>
 						<tr>
 							<td><?php echo $row->id; ?></td>
+							<td class="center">
+								<img src="<?php echo $image_url; ?>" alt="<?php echo $row->blog_title ?>">
+							</td>
+							<td class="center">
+								<?php echo $row->date_published; ?>
+							</td>
+							<td class="center">
+								<?php echo $row->author; ?>
+							</td>
 							<td class="center">
 								<?php echo $view_blog_url; ?>
 							</td>
