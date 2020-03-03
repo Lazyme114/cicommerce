@@ -11,8 +11,10 @@
 
 <ul id="sortlist">
 	<?php $this->load->module("homepage_blocks"); ?>
+	<?php $this->load->module("homepage_offers"); ?>
 	<?php foreach($homepage_blocks->result() as $row) { 
 		$edit_homepage_offers_url = base_url()."homepage_blocks/update/".$row->id;
+		$num_items = $this->homepage_offers->count_where("block_id", $row->id);
 
 		?>
 		<li class="sort" id="<?php echo $row->id; ?>">
@@ -22,6 +24,9 @@
 				</div>
 				<div class="span4">
 					<?php echo $row->block_title; ?>
+				</div>
+				<div class="span4">
+					<?php echo $num_items.(($num_items > 1) ? " items" : " item"); ?>
 				</div>
 				<div class="span1">
 					<a class="btn btn-info" href="<?php echo $edit_homepage_offers_url; ?>">

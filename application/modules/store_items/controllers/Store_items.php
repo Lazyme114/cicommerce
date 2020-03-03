@@ -270,7 +270,12 @@ class Store_items extends MX_Controller
 		$this->load->module("site_settings");
 		$this->load->module("store_categories");
 		$items_segments = $this->site_settings->_get_items_segments();
-		$refer_url = $_SERVER['HTTP_REFERER'];
+
+		if(!isset($_SERVER['HTTP_REFERER'])) {
+			$refer_url = "";
+		} else {	
+			$refer_url = $_SERVER['HTTP_REFERER'];
+		}
 
 		$mangae_url = base_url().$items_segments;
 

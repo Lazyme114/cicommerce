@@ -12,6 +12,27 @@
 	</div>
 
 <?php endif; ?>
+
+<?php if(isset($update_id) && is_numeric($update_id)) { ?>
+	<div class="row-fluid sortable">
+		<div class="box span12">
+			<div class="box-header" data-original-title>
+				<h2><i class="halflings-icon white edit"></i><span class="break"></span>Item Options</h2>
+				<div class="box-icon">
+					<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+					<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+					<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+				</div>
+			</div>
+			<div class="box-content">
+				<a href="<?php echo base_url(); ?>homepage_offers/update/<?php echo $update_id; ?>" class="btn btn-primary">Update Associated Offers</a>
+				<a href="<?php echo base_url(); ?>homepage_blocks/deleteconf/<?php echo $update_id; ?>" class="btn btn-danger">Delete Item</a>
+			</div>
+		</div>
+	</div>
+<?php } ?>
+
+
 <div class="row-fluid sortable">
 	<div class="box span12">
 		<div class="box-header" data-original-title>
