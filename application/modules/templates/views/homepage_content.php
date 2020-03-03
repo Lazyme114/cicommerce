@@ -1,3 +1,6 @@
+
+<a href="http://cicommerce.local/musical/instrument/Fender-Classic-Player-Triple-Tele-in-Black">ClickHere</a>
+
 <div class="columns">
 	<div class="column is-8">
 		<?php echo Modules::run('blog/_draw_feed_hp'); ?>

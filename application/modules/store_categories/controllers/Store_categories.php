@@ -22,6 +22,7 @@ class Store_categories extends MX_Controller
 		$this->site_security->_make_sure_is_admin();
 
 		$data = $this->fetch_data_from_db($update_id);
+
 		$data['currency_symbol'] = $this->site_settings->_get_currency_symbol();
 		$data['item_segments'] = $this->site_settings->_get_item_segments();
 
@@ -146,26 +147,26 @@ class Store_categories extends MX_Controller
 		$this->templates->admin($data);
 	}
 
-	private function fetch_data_from_post()
+	public function fetch_data_from_post()
 	{
 		$data['category_title'] = $this->input->post("category_title", TRUE);
 		$data['parent_id'] = $this->input->post("parent_id", TRUE);
 		return $data;
 	}
 
-	private function fetch_data_from_db($update_id = NULL)
+	public function fetch_data_from_db($update_id = NULL)
 	{
 		$query = $this->get_where($update_id);
 		return $query->row_array();
 	}
 
-	private function _validate_data()
+	public function _validate_data()
 	{
 		$this->load->library("form_validation");
 		$this->form_validation->set_rules('category_title', 'Category Title', 'trim|required|callback_category_check');
 	}
 
-	private function _get_dropdown_options($update_id = NULL)
+	public function _get_dropdown_options($update_id = NULL)
 	{
 		if(!is_numeric($update_id)) {
 			$update_id = 0;
@@ -233,12 +234,17 @@ class Store_categories extends MX_Controller
 
 	public function _get_category_id_from_category_url($category_url)
 	{
+
 		$query = $this->get_where_custom("category_url", $category_url);
-		$category_id = $query->row()->id;
-		if(!isset($category_id)) {
-			$category_id = 0;
+		if($query->num_rows() > 0) {
+			$category_id = $query->row()->id;
+			if(!isset($category_id)) {
+				$category_id = 0;
+			}
+			return $category_id;	
+		} else {
+			return 0;
 		}
-		return $category_id;
 	}
 
 	public function _get_category_store_items($update_id, $use_limit = FALSE)

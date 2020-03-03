@@ -32,4 +32,16 @@ class Site_settings extends MX_Controller
 		return $msg;
 	}
 
+	public function _get_best_array_key($data)
+	{
+		foreach($data as $key => $value) {
+			if(!isset($key_with_highest_value)) {
+				$key_with_highest_value = $key;
+			} elseif($value > $data[$key_with_highest_value]) {
+				$key_with_highest_value = $key;
+			}
+		}
+		return $key_with_highest_value;
+	}
+
 }

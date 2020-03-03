@@ -1,3 +1,7 @@
+<?php
+echo Modules::run('templates/_draw_breadcrumbs', $breadcrumb_data);
+?>
+
 <div class="columns">
 	<div class="column is-4" style="margin-top: 24px;">
 		<figure class="image is-fullwidth">

@@ -30,4 +30,11 @@ class Templates extends MX_Controller
 		$this->load->view('admin', $data);
 	}
 
+	public function _draw_breadcrumbs($data)
+	{
+		// Note: for this to work, data must contains:
+		// template, current_page_title, breadcrumbs_array
+		$this->load->view("breadcrumbs_public", $data);
+	}
+
 }

@@ -19,6 +19,13 @@ class Store_items extends MX_Controller
 		$this->site_security->_make_sure_is_admin();
 
 		$data = $this->fetch_data_from_db($update_id);
+
+		$breadcrumb_data['template'] = "public";
+		$breadcrumb_data['current_page_title'] = $data['item_title'];
+		$breadcrumb_data['breadcrumbs_array'] = $this->_generate_breadcrumbs_array($update_id);
+		$data['breadcrumb_data'] = $breadcrumb_data;
+
+
 		$data['update_id'] =  $update_id;
 		$data['view_module'] = "store_items";
 		$data['view_file'] = "view";
@@ -237,6 +244,71 @@ class Store_items extends MX_Controller
 			$item_id = 0;
 		}
 		return $item_id;
+	}
+
+	public function _generate_breadcrumbs_array($update_id)
+	{
+		$this->load->module("store_categories");
+		$this->load->module("site_settings");
+		$homepage_url = base_url();
+		$items_segments = $this->site_settings->_get_items_segments();
+		$data[$homepage_url] = "Home";
+
+		// get sub cat id
+		$sub_cat_id = $this->_get_sub_cat_id($update_id);
+		$store_category = $this->store_categories->fetch_data_from_db($sub_cat_id);
+
+		$sub_category_url = base_url().$items_segments.$store_category['category_url'];
+
+
+		$data[$sub_category_url] = $store_category['category_title'];
+		return $data;
+	}
+
+	public function _get_sub_cat_id($update_id)
+	{
+		$this->load->module("site_settings");
+		$this->load->module("store_categories");
+		$items_segments = $this->site_settings->_get_items_segments();
+		$refer_url = $_SERVER['HTTP_REFERER'];
+
+		$mangae_url = base_url().$items_segments;
+
+		$category_url = str_replace($mangae_url, "", $refer_url);
+
+		$category_id = $this->store_categories->_get_category_id_from_category_url($category_url);
+
+		if($category_id > 0) {
+			return $category_id;
+		} else {			
+			$sub_cat_id = $this->_get_best_sub_cat_id($update_id);
+			return $sub_cat_id;
+		}
+	}
+
+	public function _get_best_sub_cat_id($update_id)
+	{
+		$this->load->module("store_cat_assigns");
+		$this->load->module("site_settings");
+		$potential_sub_cats = [];
+
+		$query = $this->store_cat_assigns->get_where_custom('item_id', $update_id);
+		foreach($query->result() as $row) {
+			$potential_sub_cats[] = $row->category_id;
+		}
+
+		if($query->num_rows() == 1) {
+			return $potential_sub_cats[0];
+		} else {
+			foreach($potential_sub_cats as $key => $value) {
+				$sub_cat_id = $value;
+				$num_items_in_sub_cat = $this->store_cat_assigns->count_where("category_id", $sub_cat_id);
+				$num_items_count[$sub_cat_id] = $num_items_in_sub_cat;
+			}
+
+			$sub_cat_id = $this->site_settings->_get_best_array_key($num_items_count);
+			return $sub_cat_id;
+		}
 	}
 
 	public function item_check($str)
