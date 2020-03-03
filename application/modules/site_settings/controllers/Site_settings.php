@@ -44,4 +44,31 @@ class Site_settings extends MX_Controller
 		return $key_with_highest_value;
 	}
 
+	public function _get_dynamic_theme($count)
+	{
+		switch ($count) {
+			case '1':
+			$theme = "is-danger";
+			break;
+
+			case '2':
+			$theme = "is-success";
+			break;
+
+			case '3':
+			$theme = "is-primary";
+			break;
+
+			case '4':
+			$theme = "is-warning";
+			break;
+			
+			default:
+			$theme = "is-danger";
+			break;
+		}
+
+		return $theme;
+	}
+
 }

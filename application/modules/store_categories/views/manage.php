@@ -17,7 +17,7 @@
 			<?php 
 			echo Modules::run('store_categories/_draw_sortable_list', $parent_cat_id);
 			?>
-			<table class="table table-striped table-bordered bootstrap-datatable datatable">
+	<!-- 		<table class="table table-striped table-bordered bootstrap-datatable datatable">
 				<thead>
 					<tr>
 						<th>Sn.</th>
@@ -61,7 +61,7 @@
 						</tr>
 					<?php } ?>
 				</tbody>
-			</table>
+			</table> -->
 		</div>
 	</div>
 </div>

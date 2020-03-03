@@ -1,5 +1,5 @@
 <p>
-	<h1 class="is-size-3"><?php echo $category_title; ?></h1>
+	<h1 class="is-size-3"><?php echo $block_title; ?></h1>
 </p>
 
 <div style="margin-top: 20px; margin-bottom: 10px;">
@@ -15,7 +15,7 @@
 		<div class="column is-one-quarter">
 			<div class="card large">
 				<div class="card-image">
-					<figure class="image image-small">
+					<figure class="image">
 						<img src="<?php echo $small_pic_path; ?>" alt="<?php echo $row->item_title; ?>" title="<?php echo $row->item_title; ?>">
 					</figure>
 				</div>
@@ -33,6 +33,7 @@
 									</span>
 								<?php endif ?>
 							</p>
+							<p class="subtitle is-6">Lead Developer</p>
 						</div>
 					</div>
 					<div class="content">

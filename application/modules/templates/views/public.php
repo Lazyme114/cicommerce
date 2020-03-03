@@ -11,6 +11,7 @@
 	<link href="<?php echo base_url(); ?>assets/frontend/css/bulma-ribbon.min.css" rel="stylesheet">
 	<!-- Font awesome -->
 	<link href="<?php echo base_url(); ?>assets/frontend/css/all.css" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>assets/frontend/css/main.css" rel="stylesheet">
 </head>
 <body>
 	<header style="margin-bottom: 70px;">
@@ -57,6 +58,10 @@
 			<?php 
 			if(isset($page_content)) {
 				echo  nl2br($page_content);
+
+				if(!isset($page_url)) {
+					$page_url = "homepage";
+				}
 
 				if($page_url == "") {
 					require_once("homepage_content.php");

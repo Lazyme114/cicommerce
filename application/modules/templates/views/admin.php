@@ -360,6 +360,13 @@
 						</li>
 
 						<li>
+							<a href="<?php echo base_url(); ?>homepage_blocks/manage">
+								<i class="icon-star"></i>
+								<span class="hidden-tablet">Homepage Offers</span>
+							</a>
+						</li>
+
+						<li>
 							<a href="<?php echo base_url(); ?>webpages/manage">
 								<i class="icon-file"></i>
 								<span class="hidden-tablet">CMS</span>
