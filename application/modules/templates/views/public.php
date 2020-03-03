@@ -8,13 +8,13 @@
 
 	<!-- Bootstrap core CSS -->
 	<link href="<?php echo base_url(); ?>assets/frontend/css/bulma.css" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>assets/frontend/css/bulma-ribbon.min.css" rel="stylesheet">
 	<!-- Font awesome -->
 	<link href="<?php echo base_url(); ?>assets/frontend/css/all.css" rel="stylesheet">
 </head>
 <body>
-	<header>
-
-		<nav class="navbar is-danger" role="navigation" aria-label="main navigation">
+	<header style="margin-bottom: 70px;">
+		<nav class="navbar is-danger is-fixed-top" role="navigation" aria-label="main navigation" style="margin-bottom: 50px;">
 			<div class="navbar-brand">
 				<a class="navbar-item" href="https://bulma.io">
 					<img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">

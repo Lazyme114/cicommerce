@@ -1,5 +1,81 @@
+<article class="panel is-danger">
+	<p class="panel-heading">
+		Danger
+	</p>
+	<div class="panel-block">
+		<div class="container">
+			<div class="columns is-multiline">
+				<div class="column is-4">
+					<div class="box has-ribbon">
+						<div class="ribbon is-danger">Danger</div>
+						Box content
+					</div>
+				</div>
 
-<a href="http://cicommerce.local/musical/instrument/Fender-Classic-Player-Triple-Tele-in-Black">ClickHere</a>
+				<div class="column is-4">
+					<div class="box has-ribbon">
+						<div class="ribbon is-danger">Danger</div>
+						Box content
+					</div>
+				</div>
+
+				<div class="column is-4">
+					<div class="box has-ribbon">
+						<div class="ribbon is-danger">Danger</div>
+						Box content
+					</div>
+				</div>
+
+				<div class="column is-4">
+					<div class="box has-ribbon">
+						<div class="ribbon is-danger">Danger</div>
+						Box content
+					</div>
+				</div>
+
+				<div class="column is-4">
+					<div class="box has-ribbon">
+						<div class="ribbon is-danger">Danger</div>
+						Box content
+					</div>
+				</div>
+
+				<div class="column is-4">
+					<div class="box has-ribbon">
+						<div class="ribbon is-danger">Danger</div>
+						Box content
+					</div>
+				</div>
+
+				<div class="column is-4">
+					<div class="box has-ribbon">
+						<div class="ribbon is-danger">Danger</div>
+						Box content
+					</div>
+				</div>
+
+				<div class="column is-4">
+					<div class="box has-ribbon">
+						<div class="ribbon is-danger">Danger</div>
+						Box content
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="columns">
 	<div class="column is-8">

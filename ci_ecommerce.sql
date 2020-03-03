@@ -1,1114 +1,498 @@
-<!doctype html>
-<html lang="en" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="referrer" content="no-referrer">
-  <meta name="robots" content="noindex,nofollow">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <style id="cfs-style">html{display: none;}</style>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-      <link rel="stylesheet" type="text/css" href="./themes/pmahomme/jquery/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/lib/codemirror.css?v=5.0.1">
-    <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/addon/hint/show-hint.css?v=5.0.1">
-    <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/addon/lint/lint.css?v=5.0.1">
-    <link rel="stylesheet" type="text/css" href="./themes/pmahomme/css/theme.css?v=5.0.1&nocache=6187186811ltr&server=1">
-    <link rel="stylesheet" type="text/css" href="./themes/pmahomme/css/printview.css?v=5.0.1" media="print" id="printcss">
-    <title>localhost / 127.0.0.1 | phpMyAdmin 5.0.1</title>
-    <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.min.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery-migrate.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/whitelist.php?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/sprintf.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/ajax.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/keyhandler.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/bootstrap/bootstrap.bundle.min.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery-ui.min.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/js.cookie.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.mousewheel.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.event.drag-2.2.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.validate.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery-ui-timepicker-addon.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.ba-hashchange-1.3.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.debounce-1.0.5.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/menu_resizer.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/cross_framing_protection.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/rte.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/tracekit.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/error_report.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/messages.php?l=en&amp;v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/config.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/doclinks.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/functions.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/navigation.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/indexes.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/common.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/page_settings.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/drag_drop_import.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/shortcuts_handler.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/export_output.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/lib/codemirror.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/mode/sql/sql.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/addon/runmode/runmode.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/addon/hint/show-hint.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/addon/hint/sql-hint.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/addon/lint/lint.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/codemirror/addon/lint/sql-lint.js?v=5.0.1"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/console.js?v=5.0.1"></script>
+-- phpMyAdmin SQL Dump
+-- version 5.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 03, 2020 at 03:20 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.2
 
-<script data-cfasync="false" type="text/javascript">
-// <![CDATA[
-CommonParams.setAll({common_query:"",opendb_url:"db_structure.php",lang:"en",server:"1",table:"",db:"",token:"7a49273d232758676e7c5230265b6d67",text_dir:"ltr",show_databases_navigation_as_tree:true,pma_text_default_tab:"Browse",pma_text_left_default_tab:"Structure",pma_text_left_default_tab2:false,LimitChars:"50",pftext:"P",confirm:true,LoginCookieValidity:"1440",session_gc_maxlifetime:"1440",logged_in:true,is_https:false,rootPath:"/phpmyadmin/",arg_separator:"&",PMA_VERSION:"5.0.1",auth_type:"config",user:"root"});
-ConsoleEnterExecutes=false
-
-AJAX.scriptHandler
-  .add('vendor/jquery/jquery.min.js', 0)
-  .add('vendor/jquery/jquery-migrate.js', 0)
-  .add('whitelist.php', 1)
-  .add('vendor/sprintf.js', 1)
-  .add('ajax.js', 0)
-  .add('keyhandler.js', 1)
-  .add('vendor/bootstrap/bootstrap.bundle.min.js', 1)
-  .add('vendor/jquery/jquery-ui.min.js', 0)
-  .add('vendor/js.cookie.js', 1)
-  .add('vendor/jquery/jquery.mousewheel.js', 0)
-  .add('vendor/jquery/jquery.event.drag-2.2.js', 0)
-  .add('vendor/jquery/jquery.validate.js', 0)
-  .add('vendor/jquery/jquery-ui-timepicker-addon.js', 0)
-  .add('vendor/jquery/jquery.ba-hashchange-1.3.js', 0)
-  .add('vendor/jquery/jquery.debounce-1.0.5.js', 0)
-  .add('menu_resizer.js', 1)
-  .add('cross_framing_protection.js', 0)
-  .add('rte.js', 1)
-  .add('vendor/tracekit.js', 1)
-  .add('error_report.js', 1)
-  .add('messages.php', 0)
-  .add('config.js', 1)
-  .add('doclinks.js', 1)
-  .add('functions.js', 1)
-  .add('navigation.js', 1)
-  .add('indexes.js', 1)
-  .add('common.js', 1)
-  .add('page_settings.js', 1)
-  .add('drag_drop_import.js', 1)
-  .add('shortcuts_handler.js', 1)
-  .add('export_output.js', 1)
-  .add('vendor/codemirror/lib/codemirror.js', 0)
-  .add('vendor/codemirror/mode/sql/sql.js', 0)
-  .add('vendor/codemirror/addon/runmode/runmode.js', 0)
-  .add('vendor/codemirror/addon/hint/show-hint.js', 0)
-  .add('vendor/codemirror/addon/hint/sql-hint.js', 0)
-  .add('vendor/codemirror/addon/lint/lint.js', 0)
-  .add('codemirror/addon/lint/sql-lint.js', 0)
-  .add('console.js', 1)
-;
-$(function() {
-        AJAX.fireOnload('whitelist.php');
-      AJAX.fireOnload('vendor/sprintf.js');
-        AJAX.fireOnload('keyhandler.js');
-      AJAX.fireOnload('vendor/bootstrap/bootstrap.bundle.min.js');
-        AJAX.fireOnload('vendor/js.cookie.js');
-                  AJAX.fireOnload('menu_resizer.js');
-        AJAX.fireOnload('rte.js');
-      AJAX.fireOnload('vendor/tracekit.js');
-      AJAX.fireOnload('error_report.js');
-        AJAX.fireOnload('config.js');
-      AJAX.fireOnload('doclinks.js');
-      AJAX.fireOnload('functions.js');
-      AJAX.fireOnload('navigation.js');
-      AJAX.fireOnload('indexes.js');
-      AJAX.fireOnload('common.js');
-      AJAX.fireOnload('page_settings.js');
-      AJAX.fireOnload('drag_drop_import.js');
-      AJAX.fireOnload('shortcuts_handler.js');
-      AJAX.fireOnload('export_output.js');
-                    AJAX.fireOnload('console.js');
-  });
-// ]]>
-</script>
-
-  <noscript><style>html{display:block}</style></noscript>
-</head>
-<body>
-    <div id="pma_navigation">
-    <div id="pma_navigation_resizer"></div>
-    <div id="pma_navigation_collapser"></div>
-    <div id="pma_navigation_content">
-      <div id="pma_navigation_header">
-        <a class="hide navigation_url" href="navigation.php?ajax_request=1"></a>
-
-                  <div id="pmalogo">
-                          <a href="index.php">
-                                      <img id="imgpmalogo" src="./themes/pmahomme/img/logo_left.png" alt="phpMyAdmin">
-                                      </a>
-                      </div>
-        
-        <div id="navipanellinks">
-          <a href="index.php" title="Home"><img src="themes/dot.gif" title="Home" alt="Home" class="icon ic_b_home"></a>
-
-                      <a class="logout disableAjax" href="logout.php" title="Empty session data"><img src="themes/dot.gif" title="Empty session data" alt="Empty session data" class="icon ic_s_loggoff"></a>
-          
-          <a href="doc/html/index.html" title="phpMyAdmin documentation" target="_blank" rel="noopener"><img src="themes/dot.gif" title="phpMyAdmin documentation" alt="phpMyAdmin documentation" class="icon ic_b_docs"></a>
-
-          <a href="./url.php?url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Findex.html" title="Documentation" target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_sqlhelp"></a>
-
-          <a id="pma_navigation_settings_icon" href="#" title="Navigation panel settings"><img src="themes/dot.gif" title="Navigation panel settings" alt="Navigation panel settings" class="icon ic_s_cog"></a>
-
-          <a id="pma_navigation_reload" href="#" title="Reload navigation panel"><img src="themes/dot.gif" title="Reload navigation panel" alt="Reload navigation panel" class="icon ic_s_reload"></a>
-        </div>
-
-        
-        <img src="themes/dot.gif" title="Loading…" alt="Loading…" style="visibility: hidden; display:none" class="icon ic_ajax_clock_small throbber">
-      </div>
-      <div id="pma_navigation_tree" class="list_container synced highlight autoexpand">
-
-  <div class="pma_quick_warp"><div class="drop_list"><button title="Recent tables" class="drop_button btn">Recent</button><ul id="pma_recent_list"><li class="warp_link"><a href="tbl_recent_favorite.php?db=ci_ecommerce&amp;table=blogs">`ci_ecommerce`.`blogs`</a></li><li class="warp_link"><a href="tbl_recent_favorite.php?db=ci_ecommerce&amp;table=ci_sessions">`ci_ecommerce`.`ci_sessions`</a></li><li class="warp_link"><a href="tbl_recent_favorite.php?db=ci_ecommerce&amp;table=webpages">`ci_ecommerce`.`webpages`</a></li><li class="warp_link"><a href="tbl_recent_favorite.php?db=ci_ecommerce&amp;table=store_categories">`ci_ecommerce`.`store_categories`</a></li><li class="warp_link"><a href="tbl_recent_favorite.php?db=ci_ecommerce&amp;table=store_items">`ci_ecommerce`.`store_items`</a></li><li class="warp_link"><a href="tbl_recent_favorite.php?db=ci_ecommerce&amp;table=store_cat_assigns">`ci_ecommerce`.`store_cat_assigns`</a></li><li class="warp_link"><a href="tbl_recent_favorite.php?db=ci_ecommerce&amp;table=store_accounts">`ci_ecommerce`.`store_accounts`</a></li><li class="warp_link"><a href="tbl_recent_favorite.php?db=ci_ecommerce&amp;table=store_item_colors">`ci_ecommerce`.`store_item_colors`</a></li><li class="warp_link"><a href="tbl_recent_favorite.php?db=ci_ecommerce&amp;table=store_item_sizes">`ci_ecommerce`.`store_item_sizes`</a></li><li class="warp_link"><a href="tbl_recent_favorite.php?db=lara_ecommerce&amp;table=banners">`lara_ecommerce`.`banners`</a></li></ul></div><div class="drop_list"><button title="Favorite tables" class="drop_button btn">Favorites</button><ul id="pma_favorite_list"><li class="warp_link">There are no favorite tables.</li></ul></div><div class="clearfloat"></div></div>
-
-<div class="clearfloat"></div>
-
-<ul>
-  
-  <!-- CONTROLS START --><li id="navigation_controls_outer"><div id="navigation_controls"><a href="#" id="pma_navigation_collapse" title="Collapse all"><img src="themes/dot.gif" title="Collapse all" alt="Collapse all" class="icon ic_s_collapseall"></a><a href="#" id="pma_navigation_sync" title="Unlink from main panel"><img src="themes/dot.gif" title="Unlink from main panel" alt="Unlink from main panel" class="icon ic_s_link"></a></div></li><!-- CONTROLS ENDS -->
-</ul>
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-<div id='pma_navigation_tree_content'>
-  <ul>
-    <li class="first new_database italics"><div class='block'><i class='first'></i></div><div class='block '><a href='server_databases.php?server=1'><img src="themes/dot.gif" title="" alt="" class="icon ic_b_newdb"></a></div><a class='hover_show_full' href='server_databases.php?server=1' title=''>New</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class='hide aPath'>cm9vdA==.Y2lfZWNvbW1lcmNl</span><span class='hide vPath'>cm9vdA==.Y2lfZWNvbW1lcmNl</span><span class='hide pos'>0</span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class='block '><a href='db_operations.php?server=1&amp;db=ci_ecommerce&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='db_structure.php?server=1&amp;db=ci_ecommerce' title='Structure'>ci_ecommerce</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class='hide aPath'>cm9vdA==.aW5mb3JtYXRpb25fc2NoZW1h</span><span class='hide vPath'>cm9vdA==.aW5mb3JtYXRpb25fc2NoZW1h</span><span class='hide pos'>0</span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class='block '><a href='db_operations.php?server=1&amp;db=information_schema&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='db_structure.php?server=1&amp;db=information_schema' title='Structure'>information_schema</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class='hide aPath'>cm9vdA==.bGFyYV9lY29tbWVyY2U=</span><span class='hide vPath'>cm9vdA==.bGFyYV9lY29tbWVyY2U=</span><span class='hide pos'>0</span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class='block '><a href='db_operations.php?server=1&amp;db=lara_ecommerce&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='db_structure.php?server=1&amp;db=lara_ecommerce' title='Structure'>lara_ecommerce</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class='hide aPath'>cm9vdA==.bXlzcWw=</span><span class='hide vPath'>cm9vdA==.bXlzcWw=</span><span class='hide pos'>0</span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class='block '><a href='db_operations.php?server=1&amp;db=mysql&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='db_structure.php?server=1&amp;db=mysql' title='Structure'>mysql</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class='hide aPath'>cm9vdA==.cGVyZm9ybWFuY2Vfc2NoZW1h</span><span class='hide vPath'>cm9vdA==.cGVyZm9ybWFuY2Vfc2NoZW1h</span><span class='hide pos'>0</span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class='block '><a href='db_operations.php?server=1&amp;db=performance_schema&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='db_structure.php?server=1&amp;db=performance_schema' title='Structure'>performance_schema</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class='hide aPath'>cm9vdA==.cGhwbXlhZG1pbg==</span><span class='hide vPath'>cm9vdA==.cGhwbXlhZG1pbg==</span><span class='hide pos'>0</span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class='block '><a href='db_operations.php?server=1&amp;db=phpmyadmin&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='db_structure.php?server=1&amp;db=phpmyadmin' title='Structure'>phpmyadmin</a><div class="clearfloat"></div></li><li class="last database"><div class='block'><i></i><a class="expander" href='#'><span class='hide aPath'>cm9vdA==.dGVzdA==</span><span class='hide vPath'>cm9vdA==.dGVzdA==</span><span class='hide pos'>0</span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class='block '><a href='db_operations.php?server=1&amp;db=test&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='db_structure.php?server=1&amp;db=test' title='Structure'>test</a><div class="clearfloat"></div></li>
-  </ul>
-</div>
+--
+-- Database: `ci_ecommerce`
+--
 
+-- --------------------------------------------------------
 
-      </div>
+--
+-- Table structure for table `blogs`
+--
 
-      <div id="pma_navi_settings_container">
-                  <div id="pma_navigation_settings"><div class="page_settings"><form method="post" action="export.php?db=&amp;table=&amp;server=1&amp;target=" class="config-form disableAjax"><input type="hidden" name="tab_hash" value=""><input type="hidden" name="check_page_refresh"  id="check_page_refresh" value="">
-<input type="hidden" name="token" value="7a49273d232758676e7c5230265b6d67">
-<input type="hidden" name="submit_save" value="Navi"><ul class="tabs responsivetable">
+CREATE TABLE `blogs` (
+  `id` int(11) NOT NULL,
+  `blog_url` varchar(255) NOT NULL,
+  `blog_title` varchar(255) NOT NULL,
+  `blog_keywords` text NOT NULL,
+  `blog_descriptions` text NOT NULL,
+  `blog_content` text NOT NULL,
+  `date_published` date DEFAULT NULL,
+  `author` varchar(255) NOT NULL,
+  `picture` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-                                    <li>
+--
+-- Dumping data for table `blogs`
+--
 
-            <a href="#Navi_panel">
-            Navigation panel
-            </a>
-        </li>
-                                <li>
+INSERT INTO `blogs` (`id`, `blog_url`, `blog_title`, `blog_keywords`, `blog_descriptions`, `blog_content`, `date_published`, `author`, `picture`, `created_at`, `updated_at`) VALUES
+(1, 'firt-blog-trys', 'Firt Blog Trys', 'This is blog entry keyword', 'This is blog entry keyword', '<font face=\"Arial, Verdana\" xss=removed><span xss=\"removed\"><span xss=\"removed\"> </span></span></font><p xss=removed><font size=\"4\" face=\"Arial\"><span xss=removed> </span><b xss=removed>Lorem ipsum</b> dolor sit amet, consectetur adipisicing elit. Magnam, numquam consequatur! Eligendi cumque beatae aperiam fuga a qui quasi! Quidem ratione ullam, temporibus necessitatibus atque, unde sed dolore officia explicabo!</font></p>', '2020-03-24', 'Joe Bloggs ss', '7tC9XbCFSgt8SB3R.jpg', '2020-03-01 08:44:12', '2020-03-02 13:53:34');
 
-            <a href="#Navi_tree">
-            Navigation tree
-            </a>
-        </li>
-                                <li>
+-- --------------------------------------------------------
 
-            <a href="#Navi_servers">
-            Servers
-            </a>
-        </li>
-                                <li>
+--
+-- Table structure for table `ci_sessions`
+--
 
-            <a href="#Navi_databases">
-            Databases
-            </a>
-        </li>
-                                <li>
+CREATE TABLE `ci_sessions` (
+  `id` varchar(128) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `timestamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `data` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-            <a href="#Navi_tables">
-            Tables
-            </a>
-        </li>
-            </ul>
-<br><div class="tabs_contents"><fieldset class="optbox" id="Navi_panel">
-<legend>Navigation panel</legend>
-    <p>Customize appearance of the navigation panel.</p>
-<table width="100%" cellspacing="0">
-<tr><th><label for="ShowDatabasesNavigationAsTree">Show databases navigation as tree</label><span class="doc"><a href="doc/html/config.html#cfg_ShowDatabasesNavigationAsTree" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>In the navigation panel, replaces the database tree with a selector</small></th><td><span class="checkbox"><input type="checkbox" name="ShowDatabasesNavigationAsTree" id="ShowDatabasesNavigationAsTree" checked="checked"></span><a class="restore-default hide" href="#ShowDatabasesNavigationAsTree" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationLinkWithMainPanel">Link with main panel</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationLinkWithMainPanel" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Link with main panel by highlighting the current database or table.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationLinkWithMainPanel" id="NavigationLinkWithMainPanel" checked="checked"></span><a class="restore-default hide" href="#NavigationLinkWithMainPanel" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationDisplayLogo">Display logo</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationDisplayLogo" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Show logo in navigation panel.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationDisplayLogo" id="NavigationDisplayLogo" checked="checked"></span><a class="restore-default hide" href="#NavigationDisplayLogo" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationLogoLink">Logo link URL</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationLogoLink" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>URL where logo in the navigation panel will point to.</small></th><td><input type="text" class="all85" name="NavigationLogoLink" id="NavigationLogoLink" value="index.php"><a class="restore-default hide" href="#NavigationLogoLink" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationLogoLinkWindow">Logo link target</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationLogoLinkWindow" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Open the linked page in the main window (<kbd>main</kbd>) or in a new one (<kbd>new</kbd>).</small></th><td><select class="all85" name="NavigationLogoLinkWindow" id="NavigationLogoLinkWindow"><option value="main" selected="selected">main</option><option value="new">new</option></select><a class="restore-default hide" href="#NavigationLogoLinkWindow" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreePointerEnable">Enable highlighting</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationTreePointerEnable" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Highlight server under the mouse cursor.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreePointerEnable" id="NavigationTreePointerEnable" checked="checked"></span><a class="restore-default hide" href="#NavigationTreePointerEnable" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="FirstLevelNavigationItems">Maximum items on first level</label><span class="doc"><a href="doc/html/config.html#cfg_FirstLevelNavigationItems" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>The number of items that can be displayed on each page on the first level of the navigation tree.</small></th><td><input type="number" name="FirstLevelNavigationItems" id="FirstLevelNavigationItems" value="100"><a class="restore-default hide" href="#FirstLevelNavigationItems" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeDisplayItemFilterMinimum">Minimum number of items to display the filter box</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationTreeDisplayItemFilterMinimum" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Defines the minimum number of items (tables, views, routines and events) to display a filter box.</small></th><td><input type="number" name="NavigationTreeDisplayItemFilterMinimum" id="NavigationTreeDisplayItemFilterMinimum" value="30"><a class="restore-default hide" href="#NavigationTreeDisplayItemFilterMinimum" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NumRecentTables">Recently used tables</label><span class="doc"><a href="doc/html/config.html#cfg_NumRecentTables" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Maximum number of recently used tables; set 0 to disable.</small></th><td><input type="number" name="NumRecentTables" id="NumRecentTables" value="10"><a class="restore-default hide" href="#NumRecentTables" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NumFavoriteTables">Favorite tables</label><span class="doc"><a href="doc/html/config.html#cfg_NumFavoriteTables" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Maximum number of favorite tables; set 0 to disable.</small></th><td><input type="number" name="NumFavoriteTables" id="NumFavoriteTables" value="10"><a class="restore-default hide" href="#NumFavoriteTables" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationWidth">Navigation panel width</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationWidth" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Set to 0 to collapse navigation panel.</small></th><td><input type="number" name="NavigationWidth" id="NavigationWidth" value="240"><a class="restore-default hide" href="#NavigationWidth" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-<fieldset class="optbox" id="Navi_tree">
-<legend>Navigation tree</legend>
-    <p>Customize the navigation tree.</p>
-<table width="100%" cellspacing="0">
-<tr><th><label for="MaxNavigationItems">Maximum items in branch</label><span class="doc"><a href="doc/html/config.html#cfg_MaxNavigationItems" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>The number of items that can be displayed on each page of the navigation tree.</small></th><td><input type="number" name="MaxNavigationItems" id="MaxNavigationItems" value="50"><a class="restore-default hide" href="#MaxNavigationItems" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeEnableGrouping">Group items in the tree</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationTreeEnableGrouping" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Group items in the navigation tree (determined by the separator defined in the Databases and Tables tabs above).</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeEnableGrouping" id="NavigationTreeEnableGrouping" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeEnableGrouping" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeEnableExpansion">Enable navigation tree expansion</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationTreeEnableExpansion" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to offer the possibility of tree expansion in the navigation panel.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeEnableExpansion" id="NavigationTreeEnableExpansion" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeEnableExpansion" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowTables">Show tables in tree</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationTreeShowTables" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to show tables under database in the navigation tree</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowTables" id="NavigationTreeShowTables" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowTables" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowViews">Show views in tree</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationTreeShowViews" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to show views under database in the navigation tree</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowViews" id="NavigationTreeShowViews" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowViews" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowFunctions">Show functions in tree</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationTreeShowFunctions" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to show functions under database in the navigation tree</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowFunctions" id="NavigationTreeShowFunctions" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowFunctions" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowProcedures">Show procedures in tree</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationTreeShowProcedures" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to show procedures under database in the navigation tree</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowProcedures" id="NavigationTreeShowProcedures" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowProcedures" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowEvents">Show events in tree</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationTreeShowEvents" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to show events under database in the navigation tree</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowEvents" id="NavigationTreeShowEvents" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowEvents" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeAutoexpandSingleDb">Expand single database</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationTreeAutoexpandSingleDb" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to expand single database in the navigation tree automatically.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeAutoexpandSingleDb" id="NavigationTreeAutoexpandSingleDb" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeAutoexpandSingleDb" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-<fieldset class="optbox" id="Navi_servers">
-<legend>Servers</legend>
-    <p>Servers display options.</p>
-<table width="100%" cellspacing="0">
-<tr><th><label for="NavigationDisplayServers">Display servers selection</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationDisplayServers" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Display server choice at the top of the navigation panel.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationDisplayServers" id="NavigationDisplayServers" checked="checked"></span><a class="restore-default hide" href="#NavigationDisplayServers" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="DisplayServersList">Display servers as a list</label><span class="doc"><a href="doc/html/config.html#cfg_DisplayServersList" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Show server listing as a list instead of a drop down.</small></th><td><span class="checkbox"><input type="checkbox" name="DisplayServersList" id="DisplayServersList"></span><a class="restore-default hide" href="#DisplayServersList" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-<fieldset class="optbox" id="Navi_databases">
-<legend>Databases</legend>
-    <p>Databases display options.</p>
-<table width="100%" cellspacing="0">
-<tr><th><label for="NavigationTreeDisplayDbFilterMinimum">Minimum number of databases to display the database filter box</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationTreeDisplayDbFilterMinimum" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span></th><td><input type="number" name="NavigationTreeDisplayDbFilterMinimum" id="NavigationTreeDisplayDbFilterMinimum" value="30"><a class="restore-default hide" href="#NavigationTreeDisplayDbFilterMinimum" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeDbSeparator">Database tree separator</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationTreeDbSeparator" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>String that separates databases into different tree levels.</small></th><td><input type="text" size="25" name="NavigationTreeDbSeparator" id="NavigationTreeDbSeparator" value="_"><a class="restore-default hide" href="#NavigationTreeDbSeparator" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-<fieldset class="optbox" id="Navi_tables">
-<legend>Tables</legend>
-    <p>Tables display options.</p>
-<table width="100%" cellspacing="0">
-<tr><th><label for="NavigationTreeDefaultTabTable">Target for quick access icon</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationTreeDefaultTabTable" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span></th><td><select class="all85" name="NavigationTreeDefaultTabTable" id="NavigationTreeDefaultTabTable"><option value="structure" selected="selected">Structure</option><option value="sql">SQL</option><option value="search">Search</option><option value="insert">Insert</option><option value="browse">Browse</option></select><a class="restore-default hide" href="#NavigationTreeDefaultTabTable" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeDefaultTabTable2">Target for second quick access icon</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationTreeDefaultTabTable2" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span></th><td><select class="all85" name="NavigationTreeDefaultTabTable2" id="NavigationTreeDefaultTabTable2"><option value="" selected="selected"></option><option value="structure">Structure</option><option value="sql">SQL</option><option value="search">Search</option><option value="insert">Insert</option><option value="browse">Browse</option></select><a class="restore-default hide" href="#NavigationTreeDefaultTabTable2" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeTableSeparator">Table tree separator</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationTreeTableSeparator" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>String that separates tables into different tree levels.</small></th><td><input type="text" size="25" name="NavigationTreeTableSeparator" id="NavigationTreeTableSeparator" value="__"><a class="restore-default hide" href="#NavigationTreeTableSeparator" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeTableLevel">Maximum table tree depth</label><span class="doc"><a href="doc/html/config.html#cfg_NavigationTreeTableLevel" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span></th><td><input type="number" name="NavigationTreeTableLevel" id="NavigationTreeTableLevel" value="1"><a class="restore-default hide" href="#NavigationTreeTableLevel" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-</div>
-</form>
-<script type="text/javascript">
-if (typeof configInlineParams === "undefined" || !Array.isArray(configInlineParams)) configInlineParams = [];
-configInlineParams.push(function() {
-registerFieldValidator('FirstLevelNavigationItems', 'validatePositiveNumber', true);
-registerFieldValidator('NavigationTreeDisplayItemFilterMinimum', 'validatePositiveNumber', true);
-registerFieldValidator('NumRecentTables', 'validateNonNegativeNumber', true);
-registerFieldValidator('NumFavoriteTables', 'validateNonNegativeNumber', true);
-registerFieldValidator('NavigationWidth', 'validateNonNegativeNumber', true);
-registerFieldValidator('MaxNavigationItems', 'validatePositiveNumber', true);
-registerFieldValidator('NavigationTreeTableLevel', 'validatePositiveNumber', true);
-$.extend(Messages, {
-	'error_nan_p': 'Not a positive number!',
-	'error_nan_nneg': 'Not a non-negative number!',
-	'error_incorrect_port': 'Not a valid port number!',
-	'error_invalid_value': 'Incorrect value!',
-	'error_value_lte': 'Value must be less than or equal to %s!'});
-$.extend(defaultValues, {
-	'ShowDatabasesNavigationAsTree': true,
-	'NavigationLinkWithMainPanel': true,
-	'NavigationDisplayLogo': true,
-	'NavigationLogoLink': 'index.php',
-	'NavigationLogoLinkWindow': ['main'],
-	'NavigationTreePointerEnable': true,
-	'FirstLevelNavigationItems': '100',
-	'NavigationTreeDisplayItemFilterMinimum': '30',
-	'NumRecentTables': '10',
-	'NumFavoriteTables': '10',
-	'NavigationWidth': '240',
-	'MaxNavigationItems': '50',
-	'NavigationTreeEnableGrouping': true,
-	'NavigationTreeEnableExpansion': true,
-	'NavigationTreeShowTables': true,
-	'NavigationTreeShowViews': true,
-	'NavigationTreeShowFunctions': true,
-	'NavigationTreeShowProcedures': true,
-	'NavigationTreeShowEvents': true,
-	'NavigationTreeAutoexpandSingleDb': true,
-	'NavigationDisplayServers': true,
-	'DisplayServersList': false,
-	'NavigationTreeDisplayDbFilterMinimum': '30',
-	'NavigationTreeDbSeparator': '_',
-	'NavigationTreeDefaultTabTable': ['structure'],
-	'NavigationTreeDefaultTabTable2': [''],
-	'NavigationTreeTableSeparator': '__',
-	'NavigationTreeTableLevel': '1'});
-});
-if (typeof configScriptLoaded !== "undefined" && configInlineParams) loadInlineConfig();
-</script>
-</div></div>
-              </div>
-    </div>
+--
+-- Dumping data for table `ci_sessions`
+--
 
-          <div class="pma_drop_handler">
-        Drop files here      </div>
-      <div class="pma_sql_import_status">
-        <h2>
-          SQL upload          ( <span class="pma_import_count">0</span> )
-          <span class="close">x</span>
-          <span class="minimize">-</span>
-        </h2>
-        <div></div>
-      </div>
-      </div>
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
+('1but3jd5iee4pr945s5oodmas2pcecch', '127.0.0.1', 1583158099, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333135383039393b),
+('1ut76drb6cejmq6b8dfoo2do1c6jcalv', '127.0.0.1', 1583160317, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333136303331373b),
+('2amlvtv9tcc12dqf155sladrihkqon7i', '127.0.0.1', 1583161284, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333136313238343b),
+('3uivkuglpns1gicisqh97caatgh35973', '127.0.0.1', 1583157475, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333135373437353b),
+('450prg437iu19k2heap0fj7lp8to3snu', '127.0.0.1', 1583200966, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333230303936363b),
+('46a87i3c9ijscc5qceg17ld38bt615bb', '127.0.0.1', 1583198616, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333139383631363b),
+('5bg0uhccfl7vnfhfug4k4qredh48d23t', '127.0.0.1', 1583197758, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333139373735373b),
+('5jbb42r8vc7r5gsuen13sk03i3f9mlpd', '127.0.0.1', 1583163883, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333136333838333b),
+('8qug3hviuc5irnju7ctrqo8hiialer2p', '127.0.0.1', 1583164489, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333136343438393b),
+('a63r0cs1ctl944lgil8aua0162odtug9', '127.0.0.1', 1583199745, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333139393734353b),
+('acmdcj1r23lgnbonekhu3ing5v292le5', '127.0.0.1', 1583201278, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333230313237383b),
+('ciu4sf0jbotpio6qldvoqc6pc3q88p6g', '127.0.0.1', 1583157797, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333135373739373b),
+('d267oqhjn03bjfqvc3pip0ooguiuk8k8', '127.0.0.1', 1583162004, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333136323030343b),
+('d5qrefgato3m2aq4obj8fbpoin3t0m2c', '127.0.0.1', 1583201725, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333230313732353b),
+('g3a0bb4hqajmh0ppnmmjohifs8d34eog', '127.0.0.1', 1583159076, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333135393037363b),
+('h66kbbe0s5lg6mcocn7alb4m25vcoji8', '127.0.0.1', 1583156827, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333135363832373b),
+('hm3059d2ii0re8q1j4n53h9nevif6rrq', '127.0.0.1', 1583198144, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333139383134343b),
+('i72oql31sbcte1ujeeags1tutb0va1l5', '127.0.0.1', 1583165406, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333136353339333b),
+('i7iknkjclh81fio55er4g16d7grill7b', '127.0.0.1', 1583157146, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333135373134363b),
+('k9tnvgpuqk0pgqpfpri06ndg9u6qolbv', '127.0.0.1', 1583200633, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333230303633333b),
+('kem7hjobdjsqcdapah3m995tuj01oo4c', '127.0.0.1', 1583165393, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333136353339333b),
+('l9ducbcbkhnrt7lo4gahha0j2s0nc399', '127.0.0.1', 1583198917, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333139383931373b),
+('mlgvpl5stna6akghan6dgcoglo5so9sf', '127.0.0.1', 1583197759, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333139373735373b),
+('n4nl6rehlf6p9e1ic2o24gqbbonsp5dr', '127.0.0.1', 1583200804, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333230303538313b),
+('npttf4b131blf6hlb95fcqctele4ncr0', '127.0.0.1', 1583158542, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333135383534323b),
+('p0gk5qjrj5q6jhtf3uon28ff27j3t0h2', '127.0.0.1', 1583159952, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333135393935323b),
+('po3nudk8t1ecbvk4p3eupgk4lao2gtf8', '127.0.0.1', 1583201906, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333230313732353b),
+('pv2gads258rhekcpm3btuoh0001kuc75', '127.0.0.1', 1583164834, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333136343833343b),
+('r4qosat8nfjltqailqmraks7h2d5tj4f', '127.0.0.1', 1583160619, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333136303631393b),
+('rl48dkbr4kuad6dj16cgkhnvia4lhhut', '127.0.0.1', 1583160947, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333136303934373b),
+('sadtf8vtgrbc5705o7vd8vrecpu2opg6', '127.0.0.1', 1583156499, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333135363439393b),
+('tv2btdiarthkt2vj7ud3c7juiend117i', '127.0.0.1', 1583159649, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333135393634393b),
+('vq6muo2tf9t7avsacl2p1eacb27g3ril', '127.0.0.1', 1583161592, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538333136313539323b);
 
-  
-  
+-- --------------------------------------------------------
 
-  
-      <noscript>
-      <div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Javascript must be enabled past this point!</div>
-    </noscript>
-  
-      <div id='floating_menubar'></div><div id='serverinfo'><img src="themes/dot.gif" title="" alt="" class="icon ic_s_host item"><a href="index.php" class="item">Server: 127.0.0.1</a><div class="clearfloat"></div></div><div id="topmenucontainer" class="menucontainer"><i class="scrollindicator scrollindicator--left"><a href="#" class="tab"></a></i><div class="navigationbar"><ul id="topmenu"  class="resizable-menu"><li>
+--
+-- Table structure for table `store_accounts`
+--
 
-            <a href="server_databases.php" class="tab">
-            <img src="themes/dot.gif" title="Databases" alt="Databases" class="icon ic_s_db">&nbsp;Databases
-            </a>
-        </li>
-<li>
+CREATE TABLE `store_accounts` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `company` varchar(255) NOT NULL,
+  `address1` varchar(255) NOT NULL,
+  `address2` varchar(255) NOT NULL,
+  `town` varchar(255) NOT NULL,
+  `country` varchar(255) NOT NULL,
+  `postcode` varchar(255) NOT NULL,
+  `telephone` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-            <a href="server_sql.php" class="tab">
-            <img src="themes/dot.gif" title="SQL" alt="SQL" class="icon ic_b_sql">&nbsp;SQL
-            </a>
-        </li>
-<li>
+--
+-- Dumping data for table `store_accounts`
+--
 
-            <a href="server_status.php" class="tab">
-            <img src="themes/dot.gif" title="Status" alt="Status" class="icon ic_s_status">&nbsp;Status
-            </a>
-        </li>
-<li>
+INSERT INTO `store_accounts` (`id`, `first_name`, `last_name`, `company`, `address1`, `address2`, `town`, `country`, `postcode`, `telephone`, `email`, `password`, `created_at`, `updated_at`) VALUES
+(1, 'Sujan', 'Shrestha', 'Lazyme114 Co.', 'Address1', 'address2', 'my town', 'my country', '1234', '9328923421', 'lazyme114@gmail.com', '$2y$11$G4oEvzixzp9eEc0Y63V9au2wkHJBBsRzbUWSp0nhTQyPZy0zbbtni', '2020-02-28 23:10:04', '2020-02-29 06:32:58');
 
-            <a href="server_privileges.php?viewing_mode=server" class="tab">
-            <img src="themes/dot.gif" title="User accounts" alt="User accounts" class="icon ic_s_rights">&nbsp;User accounts
-            </a>
-        </li>
-<li>
+-- --------------------------------------------------------
 
-            <a href="server_export.php" class="tab">
-            <img src="themes/dot.gif" title="Export" alt="Export" class="icon ic_b_export">&nbsp;Export
-            </a>
-        </li>
-<li>
+--
+-- Table structure for table `store_categories`
+--
 
-            <a href="server_import.php" class="tab">
-            <img src="themes/dot.gif" title="Import" alt="Import" class="icon ic_b_import">&nbsp;Import
-            </a>
-        </li>
-<li>
+CREATE TABLE `store_categories` (
+  `id` int(11) NOT NULL,
+  `category_title` varchar(255) NOT NULL,
+  `category_url` varchar(255) NOT NULL,
+  `parent_id` int(11) NOT NULL DEFAULT 0,
+  `priority` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-            <a href="prefs_manage.php" class="tab">
-            <img src="themes/dot.gif" title="Settings" alt="Settings" class="icon ic_b_tblops">&nbsp;Settings
-            </a>
-        </li>
-<li>
+--
+-- Dumping data for table `store_categories`
+--
 
-            <a href="server_replication.php" class="tab">
-            <img src="themes/dot.gif" title="Replication" alt="Replication" class="icon ic_s_replication">&nbsp;Replication
-            </a>
-        </li>
-<li>
+INSERT INTO `store_categories` (`id`, `category_title`, `category_url`, `parent_id`, `priority`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Guitars', 'guitars', 0, 2, '2020-02-29 02:34:54', '2020-03-01 13:56:11', NULL),
+(2, 'Fender Guitars', 'fender-guitars', 1, 2, '2020-02-29 02:35:24', '2020-02-29 13:08:47', NULL),
+(3, 'FX Pedels ', 'fx-pedels', 0, 1, '2020-02-29 02:49:53', '2020-03-01 14:09:59', NULL),
+(4, 'Pickups', 'pickups', 0, 3, '2020-02-29 02:50:07', '2020-02-29 13:09:23', NULL),
+(5, 'Folk Instruments', 'folk-instruments', 0, 4, '2020-02-29 02:50:24', '2020-02-29 13:08:28', NULL),
+(6, 'Accessories', 'accessories', 0, 5, '2020-02-29 02:50:39', '2020-02-29 13:08:28', NULL),
+(7, 'Gibson Guitars', 'gibson-guitars', 1, 1, '2020-02-29 02:53:57', '2020-02-29 13:08:47', NULL),
+(8, 'Ibanaze Guitars', 'ibanaze-guitars', 1, 3, '2020-02-29 02:54:15', '2020-02-29 13:08:47', NULL),
+(9, 'Jackson Guitars', 'jackson-guitars', 1, 4, '2020-02-29 02:54:41', '2020-02-29 13:08:47', NULL),
+(10, 'BC Rich', 'bc-rich', 1, 5, '2020-02-29 02:55:02', '2020-02-29 13:08:47', NULL),
+(11, 'Stirnged Folk Instruments', 'stirnged-folk-instruments', 5, 0, '2020-03-02 20:58:14', NULL, NULL);
 
-            <a href="server_variables.php" class="tab">
-            <img src="themes/dot.gif" title="Variables" alt="Variables" class="icon ic_s_vars">&nbsp;Variables
-            </a>
-        </li>
-<li>
+-- --------------------------------------------------------
 
-            <a href="server_collations.php" class="tab">
-            <img src="themes/dot.gif" title="Charsets" alt="Charsets" class="icon ic_s_asci">&nbsp;Charsets
-            </a>
-        </li>
-<li>
+--
+-- Table structure for table `store_cat_assigns`
+--
 
-            <a href="server_engines.php" class="tab">
-            <img src="themes/dot.gif" title="Engines" alt="Engines" class="icon ic_b_engine">&nbsp;Engines
-            </a>
-        </li>
-<li>
+CREATE TABLE `store_cat_assigns` (
+  `id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-            <a href="server_plugins.php" class="tab">
-            <img src="themes/dot.gif" title="Plugins" alt="Plugins" class="icon ic_b_plugin">&nbsp;Plugins
-            </a>
-        </li>
-<div class="clearfloat"></div></ul></div>
-<i class="scrollindicator scrollindicator--right"><a href="#" class="tab"></a></i></div>
+--
+-- Dumping data for table `store_cat_assigns`
+--
 
-    <span id="page_nav_icons">
-      <span id="lock_page_icon"></span>
-      <span id="page_settings_icon">
-        <img src="themes/dot.gif" title="Page-related settings" alt="Page-related settings" class="icon ic_s_cog">
-      </span>
-      <a id="goto_pagetop" href="#"><img src="themes/dot.gif" title="Click on the bar to scroll to top of page" alt="Click on the bar to scroll to top of page" class="icon ic_s_top"></a>
-    </span>
-  
-  <div id="pma_console_container">
-    <div id="pma_console">
-                <div class="toolbar collapsed">
-                    <div class="switch_button console_switch">
-            <img src="themes/dot.gif" title="SQL Query Console" alt="SQL Query Console" class="icon ic_console">
-            <span>Console</span>
-        </div>
-                            <div class="button clear">
-            
-            <span>Clear</span>
-        </div>
-                            <div class="button history">
-            
-            <span>History</span>
-        </div>
-                            <div class="button options">
-            
-            <span>Options</span>
-        </div>
-                            <div class="button bookmarks">
-            
-            <span>Bookmarks</span>
-        </div>
-                            <div class="button debug hide">
-            
-            <span>Debug SQL</span>
-        </div>
-            </div>
-                <div class="content">
-            <div class="console_message_container">
-                <div class="message welcome">
-                    <span id="instructions-0">
-                        Press Ctrl+Enter to execute query                    </span>
-                    <span class="hide" id="instructions-1">
-                        Press Enter to execute query                    </span>
-                </div>
-                                                            <div class="message history collapsed hide"
-                            targetdb="ci_ecommerce" targettable="webpages">
-                            <div class="action_content">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action requery">
-            Requery
-                    </span>
-                            <span class="action edit">
-            Edit
-                    </span>
-                            <span class="action explain">
-            Explain
-                    </span>
-                            <span class="action profiling">
-            Profiling
-                    </span>
-                            <span class="action bookmark">
-            Bookmark
-                    </span>
-                            <span class="text failed">
-            Query failed
-                    </span>
-                            <span class="text targetdb">
-            Database
-                            : <span>ci_ecommerce</span>
-                    </span>
-                            <span class="text query_time">
-            Queried time
-                            : <span>During current session</span>
-                    </span>
-            </div>
-                            <span class="query">CREATE TABLE `ci_ecommerce`.`webpages` ( `id` INT NOT NULL AUTO_INCREMENT ,  `page_url` VARCHAR(255) NOT NULL ,  `page_title` VARCHAR(255) NOT NULL ,  `page_keywords` TEXT NOT NULL ,  `page_descriptions` TEXT NOT NULL ,  `page_content` TEXT NOT NULL ,  `created_at` TIMESTAMP NULL DEFAULT NULL ,  `updated_at` TIMESTAMP on update CURRENT_TIMESTAMP NULL DEFAULT NULL ,    PRIMARY KEY  (`id`)) ENGINE = InnoDB;</span>
-                        </div>
-                                            <div class="message history collapsed hide select"
-                            targetdb="ci_ecommerce" targettable="webpages">
-                            <div class="action_content">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action requery">
-            Requery
-                    </span>
-                            <span class="action edit">
-            Edit
-                    </span>
-                            <span class="action explain">
-            Explain
-                    </span>
-                            <span class="action profiling">
-            Profiling
-                    </span>
-                            <span class="action bookmark">
-            Bookmark
-                    </span>
-                            <span class="text failed">
-            Query failed
-                    </span>
-                            <span class="text targetdb">
-            Database
-                            : <span>ci_ecommerce</span>
-                    </span>
-                            <span class="text query_time">
-            Queried time
-                            : <span>During current session</span>
-                    </span>
-            </div>
-                            <span class="query">SELECT * FROM `webpages`</span>
-                        </div>
-                                            <div class="message history collapsed hide"
-                            targetdb="ci_ecommerce" targettable="blogs">
-                            <div class="action_content">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action requery">
-            Requery
-                    </span>
-                            <span class="action edit">
-            Edit
-                    </span>
-                            <span class="action explain">
-            Explain
-                    </span>
-                            <span class="action profiling">
-            Profiling
-                    </span>
-                            <span class="action bookmark">
-            Bookmark
-                    </span>
-                            <span class="text failed">
-            Query failed
-                    </span>
-                            <span class="text targetdb">
-            Database
-                            : <span>ci_ecommerce</span>
-                    </span>
-                            <span class="text query_time">
-            Queried time
-                            : <span>During current session</span>
-                    </span>
-            </div>
-                            <span class="query">CREATE TABLE `ci_ecommerce`.`blogs` ( `id` INT NOT NULL AUTO_INCREMENT ,  `blog_url` VARCHAR(255) NOT NULL ,  `blog_title` VARCHAR(255) NOT NULL ,  `blog_keywords` TEXT NOT NULL ,  `blog_descriptions` TEXT NOT NULL ,  `blog_content` TEXT NOT NULL ,  `created_at` TIMESTAMP NULL DEFAULT NULL ,  `updated_at` TIMESTAMP on update CURRENT_TIMESTAMP NULL DEFAULT NULL ,    PRIMARY KEY  (`id`)) ENGINE = InnoDB;</span>
-                        </div>
-                                            <div class="message history collapsed hide select"
-                            targetdb="ci_ecommerce" targettable="blogs">
-                            <div class="action_content">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action requery">
-            Requery
-                    </span>
-                            <span class="action edit">
-            Edit
-                    </span>
-                            <span class="action explain">
-            Explain
-                    </span>
-                            <span class="action profiling">
-            Profiling
-                    </span>
-                            <span class="action bookmark">
-            Bookmark
-                    </span>
-                            <span class="text failed">
-            Query failed
-                    </span>
-                            <span class="text targetdb">
-            Database
-                            : <span>ci_ecommerce</span>
-                    </span>
-                            <span class="text query_time">
-            Queried time
-                            : <span>During current session</span>
-                    </span>
-            </div>
-                            <span class="query">SELECT * FROM `blogs`</span>
-                        </div>
-                                            <div class="message history collapsed hide select"
-                            targetdb="ci_ecommerce" targettable="blogs">
-                            <div class="action_content">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action requery">
-            Requery
-                    </span>
-                            <span class="action edit">
-            Edit
-                    </span>
-                            <span class="action explain">
-            Explain
-                    </span>
-                            <span class="action profiling">
-            Profiling
-                    </span>
-                            <span class="action bookmark">
-            Bookmark
-                    </span>
-                            <span class="text failed">
-            Query failed
-                    </span>
-                            <span class="text targetdb">
-            Database
-                            : <span>ci_ecommerce</span>
-                    </span>
-                            <span class="text query_time">
-            Queried time
-                            : <span>During current session</span>
-                    </span>
-            </div>
-                            <span class="query">SELECT * FROM `blogs`</span>
-                        </div>
-                                            <div class="message history collapsed hide"
-                            targetdb="ci_ecommerce" targettable="">
-                            <div class="action_content">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action requery">
-            Requery
-                    </span>
-                            <span class="action edit">
-            Edit
-                    </span>
-                            <span class="action explain">
-            Explain
-                    </span>
-                            <span class="action profiling">
-            Profiling
-                    </span>
-                            <span class="action bookmark">
-            Bookmark
-                    </span>
-                            <span class="text failed">
-            Query failed
-                    </span>
-                            <span class="text targetdb">
-            Database
-                            : <span>ci_ecommerce</span>
-                    </span>
-                            <span class="text query_time">
-            Queried time
-                            : <span>During current session</span>
-                    </span>
-            </div>
-                            <span class="query">CREATE TABLE IF NOT EXISTS `ci_sessions` (
-        `id` varchar(128) NOT NULL,
-        `ip_address` varchar(45) NOT NULL,
-        `timestamp` int(10) unsigned DEFAULT 0 NOT NULL,
-        `data` blob NOT NULL,
-        KEY `ci_sessions_timestamp` (`timestamp`)
-)</span>
-                        </div>
-                                            <div class="message history collapsed hide"
-                            targetdb="ci_ecommerce" targettable="">
-                            <div class="action_content">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action requery">
-            Requery
-                    </span>
-                            <span class="action edit">
-            Edit
-                    </span>
-                            <span class="action explain">
-            Explain
-                    </span>
-                            <span class="action profiling">
-            Profiling
-                    </span>
-                            <span class="action bookmark">
-            Bookmark
-                    </span>
-                            <span class="text failed">
-            Query failed
-                    </span>
-                            <span class="text targetdb">
-            Database
-                            : <span>ci_ecommerce</span>
-                    </span>
-                            <span class="text query_time">
-            Queried time
-                            : <span>During current session</span>
-                    </span>
-            </div>
-                            <span class="query">ALTER TABLE ci_sessions ADD PRIMARY KEY (id)</span>
-                        </div>
-                                            <div class="message history collapsed hide select"
-                            targetdb="ci_ecommerce" targettable="ci_sessions">
-                            <div class="action_content">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action requery">
-            Requery
-                    </span>
-                            <span class="action edit">
-            Edit
-                    </span>
-                            <span class="action explain">
-            Explain
-                    </span>
-                            <span class="action profiling">
-            Profiling
-                    </span>
-                            <span class="action bookmark">
-            Bookmark
-                    </span>
-                            <span class="text failed">
-            Query failed
-                    </span>
-                            <span class="text targetdb">
-            Database
-                            : <span>ci_ecommerce</span>
-                    </span>
-                            <span class="text query_time">
-            Queried time
-                            : <span>During current session</span>
-                    </span>
-            </div>
-                            <span class="query">SELECT * FROM `ci_sessions`</span>
-                        </div>
-                                            <div class="message history collapsed hide select"
-                            targetdb="ci_ecommerce" targettable="ci_sessions">
-                            <div class="action_content">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action requery">
-            Requery
-                    </span>
-                            <span class="action edit">
-            Edit
-                    </span>
-                            <span class="action explain">
-            Explain
-                    </span>
-                            <span class="action profiling">
-            Profiling
-                    </span>
-                            <span class="action bookmark">
-            Bookmark
-                    </span>
-                            <span class="text failed">
-            Query failed
-                    </span>
-                            <span class="text targetdb">
-            Database
-                            : <span>ci_ecommerce</span>
-                    </span>
-                            <span class="text query_time">
-            Queried time
-                            : <span>During current session</span>
-                    </span>
-            </div>
-                            <span class="query">SELECT * FROM `ci_sessions`</span>
-                        </div>
-                                            <div class="message history collapsed hide select"
-                            targetdb="ci_ecommerce" targettable="blogs">
-                            <div class="action_content">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action requery">
-            Requery
-                    </span>
-                            <span class="action edit">
-            Edit
-                    </span>
-                            <span class="action explain">
-            Explain
-                    </span>
-                            <span class="action profiling">
-            Profiling
-                    </span>
-                            <span class="action bookmark">
-            Bookmark
-                    </span>
-                            <span class="text failed">
-            Query failed
-                    </span>
-                            <span class="text targetdb">
-            Database
-                            : <span>ci_ecommerce</span>
-                    </span>
-                            <span class="text query_time">
-            Queried time
-                            : <span>During current session</span>
-                    </span>
-            </div>
-                            <span class="query">SELECT * FROM `blogs`</span>
-                        </div>
-                                                </div><!-- console_message_container -->
-            <div class="query_input">
-                <span class="console_query_input"></span>
-            </div>
-        </div><!-- message end -->
-                <div class="mid_layer"></div>
-                <div class="card" id="debug_console">
-            <div class="toolbar ">
-                    <div class="button order order_asc">
-            
-            <span>ascending</span>
-        </div>
-                            <div class="button order order_desc">
-            
-            <span>descending</span>
-        </div>
-                            <div class="text">
-            
-            <span>Order:</span>
-        </div>
-                            <div class="switch_button">
-            
-            <span>Debug SQL</span>
-        </div>
-                            <div class="button order_by sort_count">
-            
-            <span>Count</span>
-        </div>
-                            <div class="button order_by sort_exec">
-            
-            <span>Execution order</span>
-        </div>
-                            <div class="button order_by sort_time">
-            
-            <span>Time taken</span>
-        </div>
-                            <div class="text">
-            
-            <span>Order by:</span>
-        </div>
-                            <div class="button group_queries">
-            
-            <span>Group queries</span>
-        </div>
-                            <div class="button ungroup_queries">
-            
-            <span>Ungroup queries</span>
-        </div>
-            </div>
-            <div class="content debug">
-                <div class="message welcome"></div>
-                <div class="debugLog"></div>
-            </div> <!-- Content -->
-            <div class="templates">
-                <div class="debug_query action_content">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action dbg_show_trace">
-            Show trace
-                    </span>
-                            <span class="action dbg_hide_trace">
-            Hide trace
-                    </span>
-                            <span class="text count hide">
-            Count
-                    </span>
-                            <span class="text time">
-            Time taken
-                    </span>
-            </div>
-            </div> <!-- Template -->
-        </div> <!-- Debug SQL card -->
-                    <div class="card" id="pma_bookmarks">
-                <div class="toolbar ">
-                    <div class="switch_button">
-            
-            <span>Bookmarks</span>
-        </div>
-                            <div class="button refresh">
-            
-            <span>Refresh</span>
-        </div>
-                            <div class="button add">
-            
-            <span>Add</span>
-        </div>
-            </div>
-                <div class="content bookmark">
-                    <div class="message welcome">
-    <span>No bookmarks</span>
-</div>
+INSERT INTO `store_cat_assigns` (`id`, `item_id`, `category_id`) VALUES
+(1, 1, 2),
+(2, 2, 2),
+(3, 3, 2),
+(4, 4, 2),
+(5, 5, 2),
+(6, 6, 2),
+(7, 7, 2),
+(8, 8, 2),
+(9, 9, 2),
+(10, 10, 2),
+(11, 11, 2),
+(12, 12, 2),
+(13, 13, 2),
+(14, 14, 2),
+(15, 15, 2),
+(16, 16, 2),
+(17, 17, 2),
+(18, 18, 2),
+(19, 19, 2),
+(20, 20, 2),
+(21, 21, 2),
+(22, 22, 2),
+(23, 23, 2),
+(24, 24, 2),
+(25, 25, 2),
+(26, 26, 2),
+(27, 27, 2),
+(28, 28, 2),
+(29, 29, 2),
+(30, 30, 2),
+(31, 31, 2),
+(32, 32, 2),
+(33, 33, 2),
+(34, 34, 2),
+(35, 35, 2),
+(36, 36, 2),
+(37, 37, 2),
+(38, 38, 2),
+(39, 39, 2),
+(40, 40, 2),
+(41, 41, 2),
+(42, 42, 2),
+(43, 43, 2),
+(44, 44, 2),
+(45, 45, 2),
+(46, 46, 2),
+(47, 47, 2),
+(48, 48, 2),
+(49, 49, 2),
+(50, 50, 2),
+(51, 1, 11);
 
-                </div>
-                <div class="mid_layer"></div>
-                <div class="card add">
-                    <div class="toolbar ">
-                    <div class="switch_button">
-            
-            <span>Add bookmark</span>
-        </div>
-            </div>
-                    <div class="content add_bookmark">
-                        <div class="options">
-                            <label>
-                                Label: <input type="text" name="label">
-                            </label>
-                            <label>
-                                Target database: <input type="text" name="targetdb">
-                            </label>
-                            <label>
-                                <input type="checkbox" name="shared">Share this bookmark                            </label>
-                            <button class="btn btn-primary" type="submit" name="submit">OK</button>
-                        </div> <!-- options -->
-                        <div class="query_input">
-                            <span class="bookmark_add_input"></span>
-                        </div>
-                    </div>
-                </div> <!-- Add bookmark card -->
-            </div> <!-- Bookmarks card -->
-                        <div class="card" id="pma_console_options">
-            <div class="toolbar ">
-                    <div class="switch_button">
-            
-            <span>Options</span>
-        </div>
-                            <div class="button default">
-            
-            <span>Set default</span>
-        </div>
-            </div>
-            <div class="content">
-                <label>
-                    <input type="checkbox" name="always_expand">Always expand query messages                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="start_history">Show query history at start                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="current_query">Show current browsing query                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="enter_executes">
-                        Execute queries on Enter and insert new line with Shift + Enter. To make this permanent, view settings.                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="dark_theme">Switch to dark theme                </label>
-                <br>
-            </div>
-        </div> <!-- Options card -->
-        <div class="templates">
-                        <div class="query_actions">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action requery">
-            Requery
-                    </span>
-                            <span class="action edit">
-            Edit
-                    </span>
-                            <span class="action explain">
-            Explain
-                    </span>
-                            <span class="action profiling">
-            Profiling
-                    </span>
-                            <span class="action bookmark">
-            Bookmark
-                    </span>
-                            <span class="text failed">
-            Query failed
-                    </span>
-                            <span class="text targetdb">
-            Database
-                            : <span></span>
-                    </span>
-                            <span class="text query_time">
-            Queried time
-                            : <span></span>
-                    </span>
-            </div>
-        </div>
-    </div> <!-- #console end -->
-</div> <!-- #console_container end -->
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `store_items`
+--
 
-  <div id="page_content">
-    
+CREATE TABLE `store_items` (
+  `id` int(11) NOT NULL,
+  `item_title` varchar(255) NOT NULL,
+  `item_url` varchar(255) NOT NULL,
+  `item_price` decimal(7,2) NOT NULL,
+  `item_description` text NOT NULL,
+  `big_pic` varchar(255) NOT NULL,
+  `small_pic` varchar(255) NOT NULL,
+  `was_price` decimal(7,2) DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-  
-<!DOCTYPE HTML>
-<html lang="en" dir="ltr">
-<head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>phpMyAdmin</title>
-    <meta charset="utf-8">
-    <style type="text/css">
-        html {
-            padding: 0;
-            margin: 0;
-        }
-        body  {
-            font-family: sans-serif;
-            font-size: small;
-            color: #000000;
-            background-color: #F5F5F5;
-            margin: 1em;
-        }
-        h1 {
-            margin: 0;
-            padding: 0.3em;
-            font-size: 1.4em;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #ff0000;
-        }
-        p {
-            margin: 0;
-            padding: 0.5em;
-            border: 0.1em solid red;
-            background-color: #ffeeee;
-        }
-    </style>
-</head>
-<body>
-<h1>phpMyAdmin - Error</h1>
-<p>export.php: Missing parameter: what[a@doc/html/faq.html#faqmissingparameters@documentation]<img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a><br>export.php: Missing parameter: export_type[a@doc/html/faq.html#faqmissingparameters@documentation]<img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a><br></p>
-</body>
-</html>
-  </div>
-  <div id="selflink" class="print_ignore"><a href="export.php?db=&amp;table=&amp;server=1&amp;target=" title="Open new phpMyAdmin window" target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="Open new phpMyAdmin window" alt="Open new phpMyAdmin window" class="icon ic_window-new"></a></div>
+--
+-- Dumping data for table `store_items`
+--
 
-  <div class="clearfloat" id="pma_errors">
-    
-  </div>
+INSERT INTO `store_items` (`id`, `item_title`, `item_url`, `item_price`, `item_description`, `big_pic`, `small_pic`, `was_price`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Fender Classic Player Triple Tele in Black', 'Fender-Classic-Player-Triple-Tele-in-Black', '719.00', 'The Fender Classic Player Triple Tele in Black is a spectacular guitar.  This guitar features a stunning maple fretboard and a special basswood body. The guitar has 24 frets which makes it perfect for rock. Invented in 1942, this flagship Fender guitar has been rocking the world since before a t-rex was a legitimate family pet! The Fender Classic Player Triple Tele in Black made its first appearance during Guitar Fest when Brian May took to the stage and blew the roof off with a rendition of <i>\'That stomach pain you got ain\'t no indigestion.  That\'s the blues</i>\'.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '1.jpg', '1.jpg', '800.00', 1, NULL, '2020-03-02 14:56:34', NULL),
+(2, 'Fender Deluxe Lone Star Stratocaster Guitar in Burgundy Mist', 'Fender-Deluxe-Lone-Star-Stratocaster-Guitar-in-Burgundy-Mist', '632.00', 'The Fender Deluxe Lone Star Stratocaster Guitar in Burgundy Mist is a very interesting guitar.  This guitar features a high grade maple fretboard and a full sounding high grade alder body body. The guitar has 22 frets which makes it perfect for soft rock. Invented in 1949, this flagship Fender guitar has been rocking the world since before The Dead Sea was just sick! The Fender Deluxe Lone Star Stratocaster Guitar in Burgundy Mist made its first appearance during Woodstock when Eric Clapton took to the stage and make the entire audience weep with a rendition of You\'re A Naughy One, Saucy Jack.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '2.jpg', '2.jpg', '0.00', 1, NULL, '2020-03-02 14:36:19', NULL),
+(3, 'Fender American Deluxe Dimension Bass V in Root Beer', 'Fender-American-Deluxe-Dimension-Bass-V-in-Root-Beer', '1440.00', 'The Fender American Deluxe Dimension Bass V in Root Beer is a spectacular guitar.  This guitar features a stunning rosewood fretboard and a spectacular basswood body. The guitar has 24 frets which makes it perfect for soft rock. Invented in 1969, this flagship Fender guitar has been rocking the world since before Moses parted the red sea! The Fender American Deluxe Dimension Bass V in Root Beer made its first appearance during The Isle of Wight Festival when Steve Vai took to the stage and made the audience run for the hills with a rendition of Wake Me Up Before You Go-Go.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '3.jpg', '3.jpg', '0.00', 1, NULL, '2020-03-02 14:36:19', NULL),
+(4, 'Fender American Deluxe Dimension Bass IV HH RW in Violin Burst', 'Fender-American-Deluxe-Dimension-Bass-IV-HH-RW-in-Violin-Burst', '1529.00', 'The Fender American Deluxe Dimension Bass IV HH RW in Violin Burst is a full sounding guitar.  This guitar features a stunning rosewood fretboard and a rocker\'s basswood body. The guitar has 24 frets which makes it perfect for soft rock. Invented in 1900, this flagship Fender guitar has been rocking the world since before New Kids On The Block changed their name to The Beatles! The Fender American Deluxe Dimension Bass IV HH RW in Violin Burst made its first appearance during Live AID when BB King took to the stage and left the audience begging for more with a rendition of Stairway to Heaven.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '4.jpg', '4.jpg', '0.00', 1, NULL, '2020-03-02 14:36:19', NULL),
+(5, 'Fender American Deluxe Strat Plus HSS in Metallic 3 Tone Sunburst', 'Fender-American-Deluxe-Strat-Plus-HSS-in-Metallic-3-Tone-Sunburst', '1419.00', 'The Fender American Deluxe Strat Plus HSS in Metallic 3 Tone Sunburst is a special guitar.  This guitar features a stunning maple fretboard and a full sounding high grade alder body body. The guitar has 22 frets which makes it perfect for cheesy 80s rock music. Invented in 1914, this flagship Fender guitar has been rocking the world since before The Dead Sea was just sick! The Fender American Deluxe Strat Plus HSS in Metallic 3 Tone Sunburst made its first appearance during Live AID when Angus Young took to the stage and made the audience ecstatic with a rendition of I\'m a Barbie Girl In A Barbie World.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '5.jpg', '5.jpg', '0.00', 1, NULL, '2020-03-02 14:36:19', NULL),
+(6, 'Fender Jimi Hendrix Strat in Black', 'Fender-Jimi-Hendrix-Strat-in-Black', '649.00', 'The Fender Jimi Hendrix Strat in Black is a shredder\'s guitar.  This guitar features a stunning maple fretboard and a very interesting basswood body. The guitar has 24 frets which makes it perfect for blues. Invented in 1916, this flagship Fender guitar has been rocking the world since before the amount of RAM that your computer has was measured in Roman numerals! The Fender Jimi Hendrix Strat in Black made its first appearance during Top Of The Pops when Eric Clapton took to the stage and blew the roof off with a rendition of I\'ll do it but only if Frank says \'it\'s okay\'.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '6.jpg', '6.jpg', '0.00', 1, NULL, '2020-03-02 14:36:19', NULL),
+(7, 'Fender CD-60 Acoustic Guitar Starter Pack in Natural', 'Fender-CD-60-Acoustic-Guitar-Starter-Pack-in-Natural', '139.00', 'The Fender CD-60 Acoustic Guitar Starter Pack in Natural is a rocker\'s guitar.  This guitar features a high grade rosewood fretboard and a rocker\'s basswood body. The guitar has 22 frets which makes it perfect for soft rock. Invented in 1902, this flagship Fender guitar has been rocking the world since before The Dead Sea was just sick! The Fender CD-60 Acoustic Guitar Starter Pack in Natural made its first appearance during Live AID when Chuck Berry took to the stage and left the audience begging for more with a rendition of I\'m a lumberjack and I\'m okay.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '7.jpg', '7.jpg', '0.00', 1, NULL, '2020-03-02 14:36:19', NULL),
+(8, 'Fender Japan FSR Classic 69 Telecaster Pink Paisley', 'Fender-Japan-FSR-Classic-69-Telecaster-Pink-Paisley', '901.00', 'The Fender Japan FSR Classic 69 Telecaster Pink Paisley is a full sounding guitar.  This guitar features a high grade rosewood fretboard and a very interesting high grade alder body body. The guitar has 22 frets which makes it perfect for heavy rock. Invented in 1919, this flagship Fender guitar has been rocking the world since before high button shoes were in style! The Fender Japan FSR Classic 69 Telecaster Pink Paisley made its first appearance during The Ed Sullivan Show when BB King took to the stage and shocked the audience into a state of paralysis with a rendition of I\'m a lumberjack and I\'m okay.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '8.jpg', '8.jpg', '0.00', 1, NULL, '2020-03-02 14:36:19', NULL),
+(9, 'Fender Japan FSR Classic 69 Telecaster in Blue Flower', 'Fender-Japan-FSR-Classic-69-Telecaster-in-Blue-Flower', '901.00', 'The Fender Japan FSR Classic 69 Telecaster in Blue Flower is a shredder\'s guitar.  This guitar features a high grade rosewood fretboard and a special high grade alder body body. The guitar has 24 frets which makes it perfect for heavy rock. Invented in 1991, this flagship Fender guitar has been rocking the world since before all social security numbers had two digits! The Fender Japan FSR Classic 69 Telecaster in Blue Flower made its first appearance during Woodstock when Jimmy Page took to the stage and make the entire audience weep with a rendition of Wake Me Up Before You Go-Go.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '9.jpg', '9.jpg', '0.00', 1, NULL, '2020-03-02 14:36:19', NULL),
+(10, 'Fender FSR USA Pro Stratocaster HSS in Black', 'Fender-FSR-USA-Pro-Stratocaster-HSS-in-Black', '863.00', 'The Fender FSR USA Pro Stratocaster HSS in Black is a rare guitar.  This guitar features a stunning rosewood fretboard and a high value guitar at a low end price high grade alder body body. The guitar has 24 frets which makes it perfect for cheesy 80s rock music. Invented in 1923, this flagship Fender guitar has been rocking the world since before rainbows were only available in black and white! The Fender FSR USA Pro Stratocaster HSS in Black made its first appearance during Glasonbury when Brian May took to the stage and made the audience ecstatic with a rendition of Donald Where\'s Yur Troosers.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '10.jpg', '10.jpg', '0.00', 1, NULL, '2020-03-02 14:36:19', NULL),
+(11, 'Fender FSR Deluxe Telecaster in Butterscotch Blonde', 'Fender-FSR-Deluxe-Telecaster-in-Butterscotch-Blonde', '507.00', 'The Fender FSR Deluxe Telecaster in Butterscotch Blonde is a special guitar.  This guitar features a stunning rosewood fretboard and a rocker\'s basswood body. The guitar has 22 frets which makes it perfect for heavy rock. Invented in 1966, this flagship Fender guitar has been rocking the world since before a t-rex was a legitimate family pet! The Fender FSR Deluxe Telecaster in Butterscotch Blonde made its first appearance during Live AID when BB King took to the stage and bored the crowd to tears with a rendition of Wake Me Up Before You Go-Go.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '11.jpg', '11.jpg', '0.00', 1, NULL, '2020-03-02 14:36:19', NULL),
+(12, 'Fender FSR American Vintage 70s Strat in Black', 'Fender-FSR-American-Vintage-70s-Strat-in-Black', '749.00', 'The Fender FSR American Vintage 70s Strat in Black is a spectacular guitar.  This guitar features a high grade maple fretboard and a rocker\'s high grade alder body body. The guitar has 22 frets which makes it perfect for country. Invented in 1908, this flagship Fender guitar has been rocking the world since before Yoda\'s parents was holding interviews for the position of \'baby sitter\'! The Fender FSR American Vintage 70s Strat in Black made its first appearance during Glasonbury when Joe Satriani took to the stage and cleared the floor with a rendition of You\'re A Naughy One, Saucy Jack.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '12.jpg', '12.jpg', '0.00', 1, NULL, '2020-03-02 14:36:19', NULL),
+(13, 'Fender Coronado Guitar in 3 Colour Sunburst', 'Fender-Coronado-Guitar-in-3-Colour-Sunburst', '499.00', 'The Fender Coronado Guitar in 3 Colour Sunburst is a shredder\'s guitar.  This guitar features a stunning rosewood fretboard and a rocker\'s high grade alder body body. The guitar has 22 frets which makes it perfect for soft rock. Invented in 1975, this flagship Fender guitar has been rocking the world since before New Kids On The Block changed their name to The Beatles! The Fender Coronado Guitar in 3 Colour Sunburst made its first appearance during The Isle of Wight Festival when Angus Young took to the stage and cleared the floor with a rendition of I\'m a Barbie Girl In A Barbie World.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '13.jpg', '13.jpg', '0.00', 1, NULL, '2020-03-02 14:36:19', NULL),
+(14, 'Fender FSR USA Pro Stratocaster HSS in Olympic White', 'Fender-FSR-USA-Pro-Stratocaster-HSS-in-Olympic-White', '863.00', 'The Fender FSR USA Pro Stratocaster HSS in Olympic White is a very interesting guitar.  This guitar features a stunning rosewood fretboard and a very interesting basswood body. The guitar has 24 frets which makes it perfect for blues. Invented in 1989, this flagship Fender guitar has been rocking the world since before the amount of RAM that your computer has was measured in Roman numerals! The Fender FSR USA Pro Stratocaster HSS in Olympic White made its first appearance during Woodstock when BB King took to the stage and left the audience begging for more with a rendition of I\'m a lumberjack and I\'m okay.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '14.jpg', '14.jpg', '0.00', 1, NULL, '2020-03-02 14:36:19', NULL),
+(15, 'Fender FSR Stratocaster in Black with Maple Neck', 'Fender-FSR-Stratocaster-in-Black-with-Maple-Neck', '584.00', 'The Fender FSR Stratocaster in Black with Maple Neck is a special guitar.  This guitar features a high grade maple fretboard and a rare basswood body. The guitar has 22 frets which makes it perfect for country. Invented in 1955, this flagship Fender guitar has been rocking the world since before rainbows were only available in black and white! The Fender FSR Stratocaster in Black with Maple Neck made its first appearance during The Isle of Wight Festival when Angus Young took to the stage and bored the crowd to tears with a rendition of I\'ll do it but only if Frank says \'it\'s okay\'.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '15.jpg', '15.jpg', '0.00', 1, NULL, '2020-03-02 14:36:19', NULL),
+(16, 'Fender Steve Harris P Bass in West Ham Colours', 'Fender-Steve-Harris-P-Bass-in-West-Ham-Colours', '699.00', 'The Fender Steve Harris P Bass in West Ham Colours is a shredder\'s guitar.  This guitar features a stunning rosewood fretboard and a full sounding high grade alder body body. The guitar has 22 frets which makes it perfect for rock. Invented in 1990, this flagship Fender guitar has been rocking the world since before Yoda\'s parents was holding interviews for the position of \'baby sitter\'! The Fender Steve Harris P Bass in West Ham Colours made its first appearance during Live AID when BB King took to the stage and cleared the floor with a rendition of Wake Me Up Before You Go-Go.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '16.jpg', '16.jpg', '0.00', 1, NULL, '2020-03-02 14:36:19', NULL),
+(17, 'Fender MA1 3/4 Size Steel String Acoustic Guitar', 'Fender-MA1-34-Size-Steel-String-Acoustic-Guitar', '115.00', 'The Fender MA1 3/4 Size Steel String Acoustic Guitar is a special guitar.  This guitar features a high grade maple fretboard and a rocker\'s basswood body. The guitar has 24 frets which makes it perfect for country. Invented in 1919, this flagship Fender guitar has been rocking the world since before the amount of RAM that your computer has was measured in Roman numerals! The Fender MA1 3/4 Size Steel String Acoustic Guitar made its first appearance during Top Of The Pops when Chuck Berry took to the stage and made the audience run for the hills with a rendition of Donald Where\'s Yur Troosers.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '17.jpg', '17.jpg', '0.00', 1, NULL, '2020-03-02 14:36:20', NULL),
+(18, 'Fender FSR Classic Series 60s Stratocaster in Lilac', 'Fender-FSR-Classic-Series-60s-Stratocaster-in-Lilac', '449.00', 'The Fender FSR Classic Series 60s Stratocaster in Lilac is a rare guitar.  This guitar features a high grade maple fretboard and a spectacular basswood body. The guitar has 22 frets which makes it perfect for cheesy 80s rock music. Invented in 1924, this flagship Fender guitar has been rocking the world since before rainbows were only available in black and white! The Fender FSR Classic Series 60s Stratocaster in Lilac made its first appearance during Guitar Fest when Brian May took to the stage and blew the roof off with a rendition of Donald Where\'s Yur Troosers.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '18.jpg', '18.jpg', '0.00', 1, NULL, '2020-03-02 14:36:20', NULL),
+(19, 'Fender Deluxe Lone Star Stratocaster Guitar in Black', 'Fender-Deluxe-Lone-Star-Stratocaster-Guitar-in-Black', '499.00', 'The Fender Deluxe Lone Star Stratocaster Guitar in Black is a spectacular guitar.  This guitar features a stunning rosewood fretboard and a shredder\'s high grade alder body body. The guitar has 22 frets which makes it perfect for blues. Invented in 1954, this flagship Fender guitar has been rocking the world since before the amount of RAM that your computer has was measured in Roman numerals! The Fender Deluxe Lone Star Stratocaster Guitar in Black made its first appearance during Live AID when Brian May took to the stage and made the audience ecstatic with a rendition of I\'ll do it but only if Frank says \'it\'s okay\'.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '19.jpg', '19.jpg', '0.00', 1, NULL, '2020-03-02 14:36:20', NULL),
+(20, 'Fender American Deluxe Dimension Bass IV in Root Beer', 'Fender-American-Deluxe-Dimension-Bass-IV-in-Root-Beer', '799.00', 'The Fender American Deluxe Dimension Bass IV in Root Beer is a spectacular guitar.  This guitar features a stunning maple fretboard and a high value guitar at a low end price basswood body. The guitar has 24 frets which makes it perfect for heavy rock. Invented in 1935, this flagship Fender guitar has been rocking the world since before all social security numbers had two digits! The Fender American Deluxe Dimension Bass IV in Root Beer made its first appearance during Blue Peter when Jimi Hendrix took to the stage and made the audience ecstatic with a rendition of Tie Me Kangeroo Down.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '20.jpg', '20.jpg', '0.00', 1, NULL, '2020-03-02 14:36:20', NULL);
+INSERT INTO `store_items` (`id`, `item_title`, `item_url`, `item_price`, `item_description`, `big_pic`, `small_pic`, `was_price`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(21, 'Fender Classic 70s Strat in Black', 'Fender-Classic-70s-Strat-in-Black', '529.00', 'The Fender Classic 70s Strat in Black is a spectacular guitar.  This guitar features a stunning maple fretboard and a rocker\'s high grade alder body body. The guitar has 24 frets which makes it perfect for rock. Invented in 1929, this flagship Fender guitar has been rocking the world since before the amount of RAM that your computer has was measured in Roman numerals! The Fender Classic 70s Strat in Black made its first appearance during Guitar Fest when BB King took to the stage and cleared the floor with a rendition of Donald Where\'s Yur Troosers.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '21.jpg', '21.jpg', '0.00', 1, NULL, '2020-03-02 14:36:20', NULL),
+(22, 'Fender FSR Classic Player 60s Strat Vegas Gold', 'Fender-FSR-Classic-Player-60s-Strat-Vegas-Gold', '599.00', 'The Fender FSR Classic Player 60s Strat Vegas Gold is a spectacular guitar.  This guitar features a stunning maple fretboard and a special basswood body. The guitar has 24 frets which makes it perfect for rock. Invented in 1952, this flagship Fender guitar has been rocking the world since before Yoda\'s parents was holding interviews for the position of \'baby sitter\'! The Fender FSR Classic Player 60s Strat Vegas Gold made its first appearance during Top Of The Pops when Nigel Tuffnel took to the stage and left the audience begging for more with a rendition of Wake Me Up Before You Go-Go.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '22.jpg', '22.jpg', '0.00', 1, NULL, '2020-03-02 14:36:20', NULL),
+(23, 'Fender American Standard HH Telecaster in Ocean Blue Metallic', 'Fender-American-Standard-HH-Telecaster-in-Ocean-Blue-Metallic', '949.00', 'The Fender American Standard HH Telecaster in Ocean Blue Metallic is a rare guitar.  This guitar features a high grade maple fretboard and a high value guitar at a low end price basswood body. The guitar has 24 frets which makes it perfect for heavy rock. Invented in 1969, this flagship Fender guitar has been rocking the world since before a t-rex was a legitimate family pet! The Fender American Standard HH Telecaster in Ocean Blue Metallic made its first appearance during The Isle of Wight Festival when Jimmy Page took to the stage and left the audience begging for more with a rendition of I\'m a lumberjack and I\'m okay.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '23.jpg', '23.jpg', '0.00', 1, NULL, '2020-03-02 14:36:20', NULL),
+(24, 'Fender American Deluxe Dimension Bass V HH Black', 'Fender-American-Deluxe-Dimension-Bass-V-HH-Black', '999.00', 'The Fender American Deluxe Dimension Bass V HH Black is a rare guitar.  This guitar features a high grade maple fretboard and a full sounding high grade alder body body. The guitar has 22 frets which makes it perfect for heavy rock. Invented in 1994, this flagship Fender guitar has been rocking the world since before The Dead Sea was just sick! The Fender American Deluxe Dimension Bass V HH Black made its first appearance during Guitar Fest when Steve Vai took to the stage and left the audience begging for more with a rendition of You\'re A Naughy One, Saucy Jack.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '24.jpg', '24.jpg', '0.00', 1, NULL, '2020-03-02 14:36:20', NULL),
+(25, 'Fender American Deluxe Strat Plus HSS in Metallic Black', 'Fender-American-Deluxe-Strat-Plus-HSS-in-Metallic-Black', '999.00', 'The Fender American Deluxe Strat Plus HSS in Metallic Black is a special guitar.  This guitar features a high grade rosewood fretboard and a high value guitar at a low end price basswood body. The guitar has 24 frets which makes it perfect for blues. Invented in 1913, this flagship Fender guitar has been rocking the world since before the days when Burger King was still a prince! The Fender American Deluxe Strat Plus HSS in Metallic Black made its first appearance during Blue Peter when Steve Vai took to the stage and left the audience begging for more with a rendition of The Camptown Lady.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '25.jpg', '25.jpg', '0.00', 1, NULL, '2020-03-02 14:36:20', NULL),
+(26, 'Fender Sonoran 3/4 Mini Acoustic Guitar with bag', 'Fender-Sonoran-34-Mini-Acoustic-Guitar-with-bag', '118.00', 'The Fender Sonoran 3/4 Mini Acoustic Guitar with bag is a full sounding guitar.  This guitar features a stunning maple fretboard and a rocker\'s high grade alder body body. The guitar has 24 frets which makes it perfect for cheesy 80s rock music. Invented in 1930, this flagship Fender guitar has been rocking the world since before Chuck Norris was a white belt! The Fender Sonoran 3/4 Mini Acoustic Guitar with bag made its first appearance during The Isle of Wight Festival when Angus Young took to the stage and cleared the floor with a rendition of Tie Me Kangeroo Down.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '26.jpg', '26.jpg', '0.00', 1, NULL, '2020-03-02 14:36:20', NULL),
+(27, 'Fender CD-60CE Cutaway Electro Acoustic Guitar in Black', 'Fender-CD-60CE-Cutaway-Electro-Acoustic-Guitar-in-Black', '187.00', 'The Fender CD-60CE Cutaway Electro Acoustic Guitar in Black is a rocker\'s guitar.  This guitar features a stunning rosewood fretboard and a spectacular high grade alder body body. The guitar has 22 frets which makes it perfect for heavy rock. Invented in 1915, this flagship Fender guitar has been rocking the world since before the days when Burger King was still a prince! The Fender CD-60CE Cutaway Electro Acoustic Guitar in Black made its first appearance during The Ed Sullivan Show when Elvis Costello took to the stage and made the audience run for the hills with a rendition of Wake Me Up Before You Go-Go.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '27.jpg', '27.jpg', '0.00', 1, NULL, '2020-03-02 14:36:20', NULL),
+(28, 'Fender FSR Classic Series 50s Stratocaster in Jetstream Blue', 'Fender-FSR-Classic-Series-50s-Stratocaster-in-Jetstream-Blue', '449.00', 'The Fender FSR Classic Series 50s Stratocaster in Jetstream Blue is a high value guitar at a low end price guitar.  This guitar features a high grade rosewood fretboard and a rare high grade alder body body. The guitar has 24 frets which makes it perfect for country. Invented in 1935, this flagship Fender guitar has been rocking the world since before rainbows were only available in black and white! The Fender FSR Classic Series 50s Stratocaster in Jetstream Blue made its first appearance during Blue Peter when Elvis Costello took to the stage and bored the crowd to tears with a rendition of <i>\'That stomach pain you got ain\'t no indigestion.  That\'s the blues</i>\'.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '28.jpg', '28.jpg', '0.00', 1, NULL, '2020-03-02 14:36:20', NULL),
+(29, 'Fender CD-140SCE Electro Acoustic Guitar in Satin Black', 'Fender-CD-140SCE-Electro-Acoustic-Guitar-in-Satin-Black', '225.00', 'The Fender CD-140SCE Electro Acoustic Guitar in Satin Black is a rare guitar.  This guitar features a high grade maple fretboard and a very interesting high grade alder body body. The guitar has 24 frets which makes it perfect for blues. Invented in 1957, this flagship Fender guitar has been rocking the world since before rainbows were only available in black and white! The Fender CD-140SCE Electro Acoustic Guitar in Satin Black made its first appearance during Glasonbury when BB King took to the stage and shocked the audience into a state of paralysis with a rendition of Donald Where\'s Yur Troosers.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '29.jpg', '29.jpg', '0.00', 1, NULL, '2020-03-02 14:36:20', NULL),
+(30, 'Fender CD-140SCE Electro Acoustic Guitar in Satin Natural', 'Fender-CD-140SCE-Electro-Acoustic-Guitar-in-Satin-Natural', '225.00', 'The Fender CD-140SCE Electro Acoustic Guitar in Satin Natural is a special guitar.  This guitar features a stunning maple fretboard and a very interesting high grade alder body body. The guitar has 24 frets which makes it perfect for soft rock. Invented in 1902, this flagship Fender guitar has been rocking the world since before the amount of RAM that your computer has was measured in Roman numerals! The Fender CD-140SCE Electro Acoustic Guitar in Satin Natural made its first appearance during Blue Peter when Nigel Tuffnel took to the stage and blew the roof off with a rendition of <i>\'That stomach pain you got ain\'t no indigestion.  That\'s the blues</i>\'.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '30.jpg', '30.jpg', '0.00', 1, NULL, '2020-03-02 14:36:20', NULL),
+(31, 'Fender CD-140S Natural Solid Top Acoustic Guitar', 'Fender-CD-140S-Natural-Solid-Top-Acoustic-Guitar', '196.00', 'The Fender CD-140S Natural Solid Top Acoustic Guitar is a rare guitar.  This guitar features a high grade rosewood fretboard and a rare high grade alder body body. The guitar has 22 frets which makes it perfect for soft rock. Invented in 1929, this flagship Fender guitar has been rocking the world since before Chuck Norris was a white belt! The Fender CD-140S Natural Solid Top Acoustic Guitar made its first appearance during Top Of The Pops when Brian May took to the stage and blew the roof off with a rendition of The Camptown Lady.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '31.jpg', '31.jpg', '0.00', 1, NULL, '2020-03-02 14:36:20', NULL),
+(32, 'Squier Vintage Modified Bass VI in 3 Colour Sunburst', 'Squier-Vintage-Modified-Bass-VI-in-3-Colour-Sunburst', '360.00', 'The Squier Vintage Modified Bass VI in 3 Colour Sunburst is a rare guitar.  This guitar features a high grade maple fretboard and a full sounding high grade alder body body. The guitar has 24 frets which makes it perfect for rock. Invented in 1968, this flagship Fender guitar has been rocking the world since before Yoda\'s parents was holding interviews for the position of \'baby sitter\'! The Squier Vintage Modified Bass VI in 3 Colour Sunburst made its first appearance during Live AID when Brian May took to the stage and made the audience run for the hills with a rendition of Somebody Up There Likes Me.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '32.jpg', '32.jpg', '0.00', 1, NULL, '2020-03-02 14:36:20', NULL),
+(33, 'Fender CD-60 Acoustic Guitar Starter Pack in Sunburst', 'Fender-CD-60-Acoustic-Guitar-Starter-Pack-in-Sunburst', '139.00', 'The Fender CD-60 Acoustic Guitar Starter Pack in Sunburst is a special guitar.  This guitar features a stunning maple fretboard and a rare basswood body. The guitar has 24 frets which makes it perfect for cheesy 80s rock music. Invented in 1925, this flagship Fender guitar has been rocking the world since before the amount of RAM that your computer has was measured in Roman numerals! The Fender CD-60 Acoustic Guitar Starter Pack in Sunburst made its first appearance during The Isle of Wight Festival when BB King took to the stage and made the audience ecstatic with a rendition of <i>\'That stomach pain you got ain\'t no indigestion.  That\'s the blues</i>\'.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '33.jpg', '33.jpg', '0.00', 1, NULL, '2020-03-02 14:36:20', NULL),
+(34, 'Fender Modern Player Telecaster Plus in Honey Burst ', 'Fender-Modern-Player-Telecaster-Plus-in-Honey-Burst', '379.00', 'The Fender Modern Player Telecaster Plus in Honey Burst  is a spectacular guitar.  This guitar features a high grade rosewood fretboard and a high value guitar at a low end price high grade alder body body. The guitar has 24 frets which makes it perfect for country. Invented in 1972, this flagship Fender guitar has been rocking the world since before the days when Burger King was still a prince! The Fender Modern Player Telecaster Plus in Honey Burst  made its first appearance during Glasonbury when Elvis Costello took to the stage and make the entire audience weep with a rendition of Tie Me Kangeroo Down.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '34.jpg', '34.jpg', '0.00', 1, NULL, '2020-03-02 14:36:21', NULL),
+(35, 'Squier Mini Strat in Red', 'Squier-Mini-Strat-in-Red', '105.00', 'The Squier Mini Strat in Red is a rocker\'s guitar.  This guitar features a stunning rosewood fretboard and a rare high grade alder body body. The guitar has 22 frets which makes it perfect for cheesy 80s rock music. Invented in 1963, this flagship Fender guitar has been rocking the world since before New Kids On The Block changed their name to The Beatles! The Squier Mini Strat in Red made its first appearance during Glasonbury when Angus Young took to the stage and made the audience run for the hills with a rendition of Somebody Up There Likes Me.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '35.jpg', '35.jpg', '0.00', 1, NULL, '2020-03-02 14:36:21', NULL),
+(36, 'Fender Classic Player Baja Tele in Blonde with Maple Neck', 'Fender-Classic-Player-Baja-Tele-in-Blonde-with-Maple-Neck', '690.00', 'The Fender Classic Player Baja Tele in Blonde with Maple Neck is a full sounding guitar.  This guitar features a high grade maple fretboard and a high value guitar at a low end price high grade alder body body. The guitar has 22 frets which makes it perfect for rock. Invented in 1970, this flagship Fender guitar has been rocking the world since before rainbows were only available in black and white! The Fender Classic Player Baja Tele in Blonde with Maple Neck made its first appearance during Top Of The Pops when Brian May took to the stage and made the audience ecstatic with a rendition of The Camptown Lady.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '36.jpg', '36.jpg', '0.00', 1, NULL, '2020-03-02 14:36:21', NULL),
+(37, 'Fender Special Run Stratocaster HSS in Candy Red Burst', 'Fender-Special-Run-Stratocaster-HSS-in-Candy-Red-Burst', '527.00', 'The Fender Special Run Stratocaster HSS in Candy Red Burst is a special guitar.  This guitar features a stunning maple fretboard and a very interesting high grade alder body body. The guitar has 22 frets which makes it perfect for soft rock. Invented in 1904, this flagship Fender guitar has been rocking the world since before The Dead Sea was just sick! The Fender Special Run Stratocaster HSS in Candy Red Burst made its first appearance during Wembley Stadium when Chuck Berry took to the stage and left the audience begging for more with a rendition of Donald Where\'s Yur Troosers.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '37.jpg', '37.jpg', '0.00', 1, NULL, '2020-03-02 14:36:21', NULL),
+(38, 'Fender Japan FSR Texas Special Classic 68 Strat 3 Tone Sunburst', 'Fender-Japan-FSR-Texas-Special-Classic-68-Strat-3-Tone-Sunburst', '699.00', 'The Fender Japan FSR Texas Special Classic 68 Strat 3 Tone Sunburst is a special guitar.  This guitar features a high grade maple fretboard and a rocker\'s basswood body. The guitar has 22 frets which makes it perfect for heavy rock. Invented in 1952, this flagship Fender guitar has been rocking the world since before New Kids On The Block changed their name to The Beatles! The Fender Japan FSR Texas Special Classic 68 Strat 3 Tone Sunburst made its first appearance during Live AID when Chuck Berry took to the stage and left the audience begging for more with a rendition of I\'ll do it but only if Frank says \'it\'s okay\'.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '38.jpg', '38.jpg', '0.00', 1, NULL, '2020-03-02 14:36:21', NULL),
+(39, 'Fender American Standard Offset Telecaster in 2 Tone Sunburst', 'Fender-American-Standard-Offset-Telecaster-in-2-Tone-Sunburst', '1016.00', 'The Fender American Standard Offset Telecaster in 2 Tone Sunburst is a very interesting guitar.  This guitar features a stunning rosewood fretboard and a shredder\'s basswood body. The guitar has 22 frets which makes it perfect for country. Invented in 1998, this flagship Fender guitar has been rocking the world since before the amount of RAM that your computer has was measured in Roman numerals! The Fender American Standard Offset Telecaster in 2 Tone Sunburst made its first appearance during Woodstock when Elvis Costello took to the stage and bored the crowd to tears with a rendition of I\'ll do it but only if Frank says \'it\'s okay\'.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '39.jpg', '39.jpg', '0.00', 1, NULL, '2020-03-02 14:36:21', NULL);
+INSERT INTO `store_items` (`id`, `item_title`, `item_url`, `item_price`, `item_description`, `big_pic`, `small_pic`, `was_price`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(40, 'Fender American Special Tele RW in 3 Colour Sunburst', 'Fender-American-Special-Tele-RW-in-3-Colour-Sunburst', '776.00', 'The Fender American Special Tele RW in 3 Colour Sunburst is a rocker\'s guitar.  This guitar features a stunning maple fretboard and a spectacular high grade alder body body. The guitar has 22 frets which makes it perfect for cheesy 80s rock music. Invented in 1931, this flagship Fender guitar has been rocking the world since before The Dead Sea was just sick! The Fender American Special Tele RW in 3 Colour Sunburst made its first appearance during Wembley Stadium when Eric Clapton took to the stage and make the entire audience weep with a rendition of <i>\'That stomach pain you got ain\'t no indigestion.  That\'s the blues</i>\'.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '40.jpg', '40.jpg', '0.00', 1, NULL, '2020-03-02 14:36:21', NULL),
+(41, 'Fender Paramount PM3 000 Cutaway - Standard Natural', 'Fender-Paramount-PM3-000-Cutaway-Standard-Natural', '499.00', 'The Fender Paramount PM3 000 Cutaway - Standard Natural is a special guitar.  This guitar features a stunning maple fretboard and a high value guitar at a low end price basswood body. The guitar has 22 frets which makes it perfect for soft rock. Invented in 1943, this flagship Fender guitar has been rocking the world since before Chuck Norris was a white belt! The Fender Paramount PM3 000 Cutaway - Standard Natural made its first appearance during Woodstock when Joe Satriani took to the stage and blew the roof off with a rendition of Stairway to Heaven.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '41.jpg', '41.jpg', '0.00', 1, NULL, '2020-03-02 14:36:21', NULL),
+(42, 'Fender American Elite Strat HSS Shawbucker MN in Mystic Black', 'Fender-American-Elite-Strat-HSS-Shawbucker-MN-in-Mystic-Black', '1333.00', 'The Fender American Elite Strat HSS Shawbucker MN in Mystic Black is a spectacular guitar.  This guitar features a stunning rosewood fretboard and a high value guitar at a low end price basswood body. The guitar has 22 frets which makes it perfect for heavy rock. Invented in 1969, this flagship Fender guitar has been rocking the world since before all social security numbers had two digits! The Fender American Elite Strat HSS Shawbucker MN in Mystic Black made its first appearance during The Ed Sullivan Show when Steve Vai took to the stage and made the audience ecstatic with a rendition of I\'m a Barbie Girl In A Barbie World.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '42.jpg', '42.jpg', '0.00', 1, NULL, '2020-03-02 14:36:21', NULL),
+(43, 'Fender Jimi Hendrix Strat in Olympic White', 'Fender-Jimi-Hendrix-Strat-in-Olympic-White', '680.00', 'The Fender Jimi Hendrix Strat in Olympic White is a rare guitar.  This guitar features a stunning rosewood fretboard and a shredder\'s high grade alder body body. The guitar has 24 frets which makes it perfect for soft rock. Invented in 1985, this flagship Fender guitar has been rocking the world since before Moses parted the red sea! The Fender Jimi Hendrix Strat in Olympic White made its first appearance during Woodstock when Jimi Hendrix took to the stage and make the entire audience weep with a rendition of Stairway to Heaven.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '43.jpg', '43.jpg', '0.00', 1, NULL, '2020-03-02 14:36:21', NULL),
+(44, 'Fender CD-140S Satin Natural Solid Top Acoustic Guitar', 'Fender-CD-140S-Satin-Natural-Solid-Top-Acoustic-Guitar', '168.00', 'The Fender CD-140S Satin Natural Solid Top Acoustic Guitar is a rare guitar.  This guitar features a high grade rosewood fretboard and a rocker\'s high grade alder body body. The guitar has 24 frets which makes it perfect for heavy rock. Invented in 1996, this flagship Fender guitar has been rocking the world since before the amount of RAM that your computer has was measured in Roman numerals! The Fender CD-140S Satin Natural Solid Top Acoustic Guitar made its first appearance during Top Of The Pops when Nigel Tuffnel took to the stage and bored the crowd to tears with a rendition of I\'m a lumberjack and I\'m okay.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '44.jpg', '44.jpg', '0.00', 1, NULL, '2020-03-02 14:36:21', NULL),
+(45, 'Fender American Special Strat in Olympic White', 'Fender-American-Special-Strat-in-Olympic-White', '776.00', 'The Fender American Special Strat in Olympic White is a high value guitar at a low end price guitar.  This guitar features a high grade maple fretboard and a rocker\'s basswood body. The guitar has 24 frets which makes it perfect for rock. Invented in 1912, this flagship Fender guitar has been rocking the world since before a t-rex was a legitimate family pet! The Fender American Special Strat in Olympic White made its first appearance during Glasonbury when Eric Clapton took to the stage and made the audience run for the hills with a rendition of I\'m a lumberjack and I\'m okay.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '45.jpg', '45.jpg', '0.00', 1, NULL, '2020-03-02 14:36:21', NULL),
+(46, 'Fender CD140S All Mahogany Acoustic Guitar', 'Fender-CD140S-All-Mahogany-Acoustic-Guitar', '225.00', 'The Fender CD140S All Mahogany Acoustic Guitar is a rocker\'s guitar.  This guitar features a high grade rosewood fretboard and a high value guitar at a low end price basswood body. The guitar has 24 frets which makes it perfect for heavy rock. Invented in 1921, this flagship Fender guitar has been rocking the world since before The Dead Sea was just sick! The Fender CD140S All Mahogany Acoustic Guitar made its first appearance during The Ed Sullivan Show when Joe Satriani took to the stage and blew the roof off with a rendition of Tie Me Kangeroo Down.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '46.jpg', '46.jpg', '0.00', 1, NULL, '2020-03-02 14:36:21', NULL),
+(47, 'Fender Coronado Guitar in Candy Apple Red', 'Fender-Coronado-Guitar-in-Candy-Apple-Red', '499.00', 'The Fender Coronado Guitar in Candy Apple Red is a full sounding guitar.  This guitar features a high grade rosewood fretboard and a spectacular basswood body. The guitar has 24 frets which makes it perfect for cheesy 80s rock music. Invented in 1969, this flagship Fender guitar has been rocking the world since before Chuck Norris was a white belt! The Fender Coronado Guitar in Candy Apple Red made its first appearance during The Isle of Wight Festival when Steve Vai took to the stage and blew the roof off with a rendition of Somebody Up There Likes Me.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '47.jpg', '47.jpg', '0.00', 1, NULL, '2020-03-02 14:36:21', NULL),
+(48, 'Squier Vintage Modified Jazz Bass V 5 String in Natural ', 'Squier-Vintage-Modified-Jazz-Bass-V-5-String-in-Natural', '340.00', 'The Squier Vintage Modified Jazz Bass V 5 String in Natural  is a high value guitar at a low end price guitar.  This guitar features a stunning maple fretboard and a spectacular basswood body. The guitar has 22 frets which makes it perfect for heavy rock. Invented in 1972, this flagship Fender guitar has been rocking the world since before The Dead Sea was just sick! The Squier Vintage Modified Jazz Bass V 5 String in Natural  made its first appearance during Top Of The Pops when Joe Satriani took to the stage and bored the crowd to tears with a rendition of I\'m a lumberjack and I\'m okay.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '48.jpg', '48.jpg', '0.00', 1, NULL, '2020-03-02 14:36:21', NULL),
+(49, 'Squier Vintage Modified Jazz Bass 70s in Natural', 'Squier-Vintage-Modified-Jazz-Bass-70s-in-Natural', '297.00', 'The Squier Vintage Modified Jazz Bass 70s in Natural is a full sounding guitar.  This guitar features a stunning rosewood fretboard and a rare high grade alder body body. The guitar has 22 frets which makes it perfect for heavy rock. Invented in 1956, this flagship Fender guitar has been rocking the world since before Chuck Norris was a white belt! The Squier Vintage Modified Jazz Bass 70s in Natural made its first appearance during Guitar Fest when Jimi Hendrix took to the stage and made the audience ecstatic with a rendition of I\'m a lumberjack and I\'m okay.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '49.jpg', '49.jpg', '0.00', 1, NULL, '2020-03-02 14:36:21', NULL),
+(50, 'Squier Vintage Modified Jaguar in Olympic White', 'Squier-Vintage-Modified-Jaguar-in-Olympic-White', '316.00', 'The Squier Vintage Modified Jaguar in Olympic White is a shredder\'s guitar.  This guitar features a high grade rosewood fretboard and a shredder\'s basswood body. The guitar has 22 frets which makes it perfect for blues. Invented in 1920, this flagship Fender guitar has been rocking the world since before New Kids On The Block changed their name to The Beatles! The Squier Vintage Modified Jaguar in Olympic White made its first appearance during The Ed Sullivan Show when Chuck Berry took to the stage and shocked the audience into a state of paralysis with a rendition of I\'m a lumberjack and I\'m okay.\n    \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi rutrum, volutpat justo ut, hendrerit diam. Aenean consectetur dictum dignissim. Nullam dignissim, libero a fringilla tempor, ex nulla efficitur libero, nec blandit leo lacus sed libero. Ut volutpat tortor aliquet congue tristique. Suspendisse dictum augue quis ante vulputate pulvinar. Quisque nec mi non nisl consequat blandit vel sit amet nisi. Ut non quam faucibus, ullamcorper lacus non, pulvinar diam. Pellentesque posuere nisl ac imperdiet dignissim.\n\nDonec eu diam sit amet velit tempor congue eu malesuada metus. Curabitur a dui vel purus posuere aliquam sed a velit. Aliquam quis tellus eget quam semper tempus. Aliquam urna velit, mattis id ultricies id, malesuada ut neque. Donec in est tellus. In congue mi at mi ornare sollicitudin. Phasellus risus leo, imperdiet non eros ut, suscipit malesuada massa. \n\n\nSed vel vestibulum mauris, sit amet vestibulum metus. Etiam sed urna ultricies, rhoncus risus vitae, mattis turpis. Cras tortor magna, commodo ac mi quis, bibendum efficitur neque. Duis eu justo ut tortor finibus mollis ut in mauris. Aliquam nisi nunc, viverra in est vitae, ornare tincidunt nulla. Morbi pharetra at purus at sollicitudin. Nunc sit amet faucibus metus. Praesent viverra tellus at urna cursus, id mattis felis rutrum. Pellentesque velit magna, blandit ac maximus non, molestie sit amet metus. Vivamus justo risus, euismod in dapibus a, vehicula et purus. Pellentesque suscipit non quam nec imperdiet. Sed pellentesque nec augue a varius. Ut ullamcorper, erat ac rutrum viverra, massa dolor sollicitudin diam, a suscipit tellus odio ac purus. Aenean sit amet ornare tortor.\n    ', '50.jpg', '50.jpg', '0.00', 1, NULL, '2020-03-02 14:36:21', NULL);
 
-  
-<script data-cfasync="false" type="text/javascript">
-// <![CDATA[
-var debugSQLInfo = 'null';
+-- --------------------------------------------------------
 
-// ]]>
-</script>
+--
+-- Table structure for table `store_item_colors`
+--
 
+CREATE TABLE `store_item_colors` (
+  `id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `color` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-  
-  
-  </body>
-</html>
+--
+-- Dumping data for table `store_item_colors`
+--
+
+INSERT INTO `store_item_colors` (`id`, `item_id`, `color`) VALUES
+(7, 5, 'Gold'),
+(8, 5, 'Purple Gold'),
+(9, 5, 'Old Gold');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `store_item_sizes`
+--
+
+CREATE TABLE `store_item_sizes` (
+  `id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `size` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `store_item_sizes`
+--
+
+INSERT INTO `store_item_sizes` (`id`, `item_id`, `size`) VALUES
+(5, 5, '46 mm'),
+(6, 5, '42 mm'),
+(7, 5, '40 mm'),
+(8, 5, '36 mm');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `webpages`
+--
+
+CREATE TABLE `webpages` (
+  `id` int(11) NOT NULL,
+  `page_url` varchar(255) NOT NULL,
+  `page_title` varchar(255) NOT NULL,
+  `page_keywords` text NOT NULL,
+  `page_descriptions` text NOT NULL,
+  `page_content` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `webpages`
+--
+
+INSERT INTO `webpages` (`id`, `page_url`, `page_title`, `page_keywords`, `page_descriptions`, `page_content`, `created_at`, `updated_at`) VALUES
+(1, '', 'Homepage', 'Homepage', 'This is Homepage', 'Here goes homepage content', '2020-03-01 08:14:24', '2020-03-01 12:59:41'),
+(2, 'contact-us', 'Contact Us', 'Contact us', 'This is contact us page', 'contact us content', '2020-03-01 08:15:21', NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `blogs`
+--
+ALTER TABLE `blogs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ci_sessions`
+--
+ALTER TABLE `ci_sessions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ci_sessions_timestamp` (`timestamp`);
+
+--
+-- Indexes for table `store_accounts`
+--
+ALTER TABLE `store_accounts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `store_categories`
+--
+ALTER TABLE `store_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `store_cat_assigns`
+--
+ALTER TABLE `store_cat_assigns`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `store_items`
+--
+ALTER TABLE `store_items`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `store_item_colors`
+--
+ALTER TABLE `store_item_colors`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `store_item_sizes`
+--
+ALTER TABLE `store_item_sizes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `webpages`
+--
+ALTER TABLE `webpages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `blogs`
+--
+ALTER TABLE `blogs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `store_accounts`
+--
+ALTER TABLE `store_accounts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `store_categories`
+--
+ALTER TABLE `store_categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `store_cat_assigns`
+--
+ALTER TABLE `store_cat_assigns`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
+--
+-- AUTO_INCREMENT for table `store_items`
+--
+ALTER TABLE `store_items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
+--
+-- AUTO_INCREMENT for table `store_item_colors`
+--
+ALTER TABLE `store_item_colors`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `store_item_sizes`
+--
+ALTER TABLE `store_item_sizes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `webpages`
+--
+ALTER TABLE `webpages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
