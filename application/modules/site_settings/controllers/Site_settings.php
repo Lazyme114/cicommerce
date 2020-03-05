@@ -6,6 +6,12 @@ class Site_settings extends MX_Controller
 		parent::__construct();
 	}
 
+	public function _get_cookie_name()
+	{
+		$cookie_name = 'suklsadh';
+		return $cookie_name;
+	}
+
 	public function _get_currency_symbol()
 	{
 		$symbol = "&pound;";

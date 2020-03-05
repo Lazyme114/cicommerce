@@ -1,9 +1,9 @@
 <?php 
-if(isset($error)) {
+if(isset($errors)) {
 	?>
 	<div class="notification is-danger">
 		<button class="delete"></button>
-		<?php echo $error; ?>
+		<?php echo $errors; ?>
 	</div>
 	<?php
 }
@@ -24,13 +24,13 @@ if(isset($error)) {
 					<form>
 						<div class="field">
 							<div class="control">
-								<input class="input is-large" type="email" placeholder="Your Email" autofocus="">
+								<input class="input" type="username" placeholder="Your Email" autocomplete="disabled" name="username">
 							</div>
 						</div>
 
 						<div class="field">
 							<div class="control">
-								<input class="input is-large" type="password" placeholder="Your Password">
+								<input class="input" type="password" placeholder="Your Password" name="password">
 							</div>
 						</div>
 						<div class="field">

@@ -10,7 +10,7 @@ class Member extends MX_Controller
 	{
 		$this->load->module("store_accounts");
 		$this->load->module("site_security");
-		$data = $this->fetch_data_from_post();
+		$data = $this->fetch_data_from_register_post();
 		$submit = $this->input->post("submit", TRUE);
 		if($submit == "submit") {
 			$this->_validate_data();
@@ -34,14 +34,29 @@ class Member extends MX_Controller
 
 	public function login()
 	{
-		$data['username'] = "";
+		$data['username'] = $this->input->post("username", TRUE);
+		$data['password'] = $this->input->post("password", TRUE);
+		$submit = $this->input->post("submit", TRUE);
+		if($submit == "submit") {
+			$this->load->library("form_validation");
+			if($this->form_validation->run() == TRUE) {
+				
+
+				
+
+
+				
+			} else {
+				$data['errors'] = validation_errors();
+			}
+		}
 		$data['view_file'] = "login";
 		$this->load->module("templates");
 		$this->templates->public($data);
 	}
 	
 
-	public function fetch_data_from_post()
+	public function fetch_data_from_register_post()
 	{
 		$data['first_name'] = $this->input->post('first_name', TRUE);
 		$data['last_name'] = $this->input->post('last_name', TRUE);
