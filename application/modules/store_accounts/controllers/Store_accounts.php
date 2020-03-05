@@ -231,4 +231,10 @@ class Store_accounts extends MX_Controller
 		return $query;
 	}
 
+	public function get_with_double_condition($col1, $value1, $col2, $value2)
+	{
+		$query = $this->mdl_store_accounts->get_with_double_condition($col1, $value1, $col2, $value2);
+		return $query;
+	}
+
 }

@@ -6,6 +6,25 @@ class Site_security extends MX_Controller
 		parent::__construct();
 	}
 
+	public function _get_user_id()
+	{
+		$this->load->module("site_cookies");
+		$user_id = $this->session->userdata('user_id');
+		if(!is_numeric($user_id)) {
+			$user_id = $this->site_cookies->_attempt_get_id();
+		}
+
+		return $user_id;
+	}
+
+	public function _make_sure_logged_in()
+	{
+		$user_id = $this->_get_user_id();
+		if(!is_numeric($user_id)) {
+			$redirect('members/login','refresh');
+		}
+	}
+
 	public function generate_random_string($length)
 	{
 		$characters = '23456789abcdefghjkmnqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ';

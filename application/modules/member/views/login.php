@@ -21,10 +21,10 @@ if(isset($errors)) {
 						<!-- <img src="https://placehold.it/128x128"> -->
 						<img src="<?php echo base_url(); ?>assets/frontend/img/avatar.png" alt="" width="128">
 					</figure>
-					<form>
+					<form method="POST" action="<?php echo base_url(); ?>member/login">
 						<div class="field">
 							<div class="control">
-								<input class="input" type="username" placeholder="Your Email" autocomplete="disabled" name="username">
+								<input class="input" type="username" placeholder="Your Username / Email" autocomplete="disabled" name="username">
 							</div>
 						</div>
 
@@ -35,11 +35,11 @@ if(isset($errors)) {
 						</div>
 						<div class="field">
 							<label class="checkbox">
-								<input type="checkbox">
+								<input type="checkbox" name="remember" value="remember-me">
 								Remember me
 							</label>
 						</div>
-						<button class="button is-block is-info is-large is-fullwidth">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+						<button type="submit" class="button is-block is-danger is-large is-rounded is-fullwidth" name="submit" value="submit">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
 					</form>
 				</div>
 				<p class="has-text-grey">
