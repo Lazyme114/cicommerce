@@ -64,6 +64,12 @@
 						</div>
 					</div>
 					<div class="control-group">
+						<label class="control-label" for="username">Userame </label>
+						<div class="controls">
+							<input type="text" class="span5" name="username" id="username" value="<?php echo $username; ?>">
+						</div>
+					</div>
+					<div class="control-group">
 						<label class="control-label" for="company">Company </label>
 						<div class="controls">
 							<input type="text" class="span5" name="company" id="company" value="<?php echo $company; ?>">

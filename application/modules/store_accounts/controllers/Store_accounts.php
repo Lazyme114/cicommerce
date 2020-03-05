@@ -99,12 +99,14 @@ class Store_accounts extends MX_Controller
 	{
 		$this->form_validation->set_rules('first_name', 'First Name', 'trim|required');
 		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required');
+		$this->form_validation->set_rules('username', 'Username', 'trim|required');
 	}
 
 	private function fetch_data_from_post()
 	{
 		$data['first_name'] = $this->input->post('first_name', TRUE);
 		$data['last_name'] = $this->input->post('last_name', TRUE);
+		$data['username'] = $this->input->post('username', TRUE);
 		$data['company'] = $this->input->post('company', TRUE);
 		$data['address1'] = $this->input->post('address1', TRUE);
 		$data['address2'] = $this->input->post('address2', TRUE);

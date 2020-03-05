@@ -20,6 +20,7 @@
 						<th>Sn.</th>
 						<th>First Name</th>
 						<th>Last Name</th>
+						<th>Username</th>
 						<th>Company</th>
 						<th>Date Created</th>
 						<th>Actions</th>
@@ -36,6 +37,9 @@
 							</td>
 							<td class="center">
 								<?php echo $row->last_name; ?>
+							</td>
+							<td class="center">
+								<?php echo $row->username; ?>
 							</td>
 							<td>
 								<?php echo $row->company; ?>

@@ -40,7 +40,7 @@
 				<div class="navbar-end">
 					<div class="navbar-item">
 						<div class="buttons">
-							<a class="button is-primary">
+							<a href="<?php echo base_url(); ?>member/register" class="button is-primary">
 								<strong>Sign up</strong>
 							</a>
 							<a class="button is-light">
@@ -106,6 +106,18 @@
 				});
 			}
 
+		});
+	</script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			(document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+				$notification = $delete.parentNode;
+
+				$delete.addEventListener('click', () => {
+					$notification.parentNode.removeChild($notification);
+				});
+			});
 		});
 	</script>
 </body>
