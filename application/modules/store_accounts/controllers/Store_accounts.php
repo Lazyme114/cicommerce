@@ -153,6 +153,15 @@ class Store_accounts extends MX_Controller
 		}
 	}
 
+	public function _get_customer_name($update_id)
+	{
+		$query = $this->get_where($update_id);
+		if($query->num_rows() > 0) {
+			return $query->row()->username;
+		}
+		return "NA";
+	}
+
 	// ======================================================
 	// ================== database querie ===================
 	// ======================================================

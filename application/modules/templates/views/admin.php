@@ -19,6 +19,8 @@
 	<link href="<?php echo base_url(); ?>assets/admin/css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link id="base-style" href="<?php echo base_url(); ?>assets/admin/css/style.css" rel="stylesheet">
 	<link id="base-style-responsive" href="<?php echo base_url(); ?>assets/admin/css/style-responsive.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/css/main.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
 	<!-- end: CSS -->
 	
@@ -370,6 +372,13 @@
 							<a href="<?php echo base_url(); ?>webpages/manage">
 								<i class="icon-file"></i>
 								<span class="hidden-tablet">CMS</span>
+							</a>
+						</li>
+
+						<li>
+							<a href="<?php echo base_url(); ?>enquiries/inbox">
+								<i class="icon-envelope"></i>
+								<span class="hidden-tablet">Messages</span>
 							</a>
 						</li>
 
