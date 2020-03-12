@@ -37,4 +37,9 @@ class Templates extends MX_Controller
 		$this->load->view("breadcrumbs_public", $data);
 	}
 
+	public function _draw_customer_nav($data)
+	{
+		$this->load->view("customer_navbar", $data);
+	}
+
 }

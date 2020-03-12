@@ -77,7 +77,7 @@
 							<div class="field">
 								<label class="label">Address 1 <span style="color: red;">*</span></label>
 								<div class="control">
-									<input class="input" type="text" placeholder="Address 1" name="address_1" value="<?php echo $address_1;?>" required>
+									<input class="input" type="text" placeholder="Address 1" name="address1" value="<?php echo $address1;?>" required>
 								</div>
 							</div>
 						</div>
@@ -85,7 +85,7 @@
 							<div class="field">
 								<label class="label">Address 2</label>
 								<div class="control">
-									<input class="input" type="text" placeholder="Address 2" name="address_2" value="<?php echo $address_2;?>">
+									<input class="input" type="text" placeholder="Address 2" name="address2" value="<?php echo $address2;?>">
 								</div>
 							</div>
 						</div>

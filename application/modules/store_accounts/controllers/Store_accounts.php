@@ -95,14 +95,14 @@ class Store_accounts extends MX_Controller
 	}
 
 
-	private function _validate_data()
+	public function _validate_data()
 	{
 		$this->form_validation->set_rules('first_name', 'First Name', 'trim|required');
 		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required');
 		$this->form_validation->set_rules('username', 'Username', 'trim|required');
 	}
 
-	private function fetch_data_from_post()
+	public function fetch_data_from_post()
 	{
 		$data['first_name'] = $this->input->post('first_name', TRUE);
 		$data['last_name'] = $this->input->post('last_name', TRUE);
@@ -119,7 +119,7 @@ class Store_accounts extends MX_Controller
 		return $data;
 	}
 
-	private function fetch_data_from_db($update_id = NULL)
+	public function fetch_data_from_db($update_id = NULL)
 	{
 		$query = $this->get_where($update_id);
 		return $query->row_array();

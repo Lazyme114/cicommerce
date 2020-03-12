@@ -8,10 +8,61 @@ class Member extends MX_Controller
 		$this->form_validation->CI =& $this;
 	}
 
+	public function compose()
+	{
+		$this->load->module("site_security");
+		$this->load->module("enquiries");
+		$this->load->module("store_accounts");
+		$this->site_security->_make_sure_logged_in();
+		$user_id = $this->site_security->_get_user_id();
+		$submit = $this->input->post("submit");
+		if($submit == "submit") {
+			echo "Form submitted";
+		}
+
+
+		
+		$data['view_file'] = "compose";
+		$this->load->module("templates");
+		$this->templates->public($data);
+	}
+
+	public function message_show($message_id)
+	{
+		$this->load->module("enquiries");
+		$this->load->module("site_security");
+		$this->load->module("store_accounts");
+		$this->site_security->_make_sure_logged_in();
+		$user_id = $this->site_security->_get_user_id();
+		$data = $this->store_accounts->fetch_data_from_db($user_id);
+		$data['query'] = $this->enquiries->get_where($message_id);
+		$data['view_file'] = "message_show";
+		$this->load->module("templates");
+		$this->templates->public($data);
+	}
+
+	public function inbox()
+	{
+		$this->load->module("enquiries");
+		$this->load->module("site_security");
+		$this->load->module("store_accounts");
+		$this->site_security->_make_sure_logged_in();
+		$user_id = $this->site_security->_get_user_id();
+		$data = $this->store_accounts->fetch_data_from_db($user_id);
+		$data['query'] = $this->enquiries->get_where_custom("sent_to", $user_id);
+		$data['view_file'] = "inbox";
+		$this->load->module("templates");
+		$this->templates->public($data);
+	}
+
 	public function account()
 	{
 		$this->load->module("site_security");
+		$this->load->module("store_accounts");
+		$user_id = $this->site_security->_get_user_id();
 		$this->site_security->_make_sure_logged_in();
+		// $data = $this->fetch_data_from_register_post();
+		$data = $this->store_accounts->fetch_data_from_db($user_id);
 		$data['view_file'] = "account";
 		$this->load->module("templates");
 		$this->templates->public($data);
@@ -94,8 +145,8 @@ class Member extends MX_Controller
 		$data['email'] = $this->input->post('email', TRUE);
 		$data['country'] = $this->input->post('country', TRUE);
 		$data['town'] = $this->input->post('town', TRUE);
-		$data['address1'] = $this->input->post('address_1', TRUE);
-		$data['address2'] = $this->input->post('address_2', TRUE);
+		$data['address1'] = $this->input->post('address1', TRUE);
+		$data['address2'] = $this->input->post('address2', TRUE);
 		$data['telephone'] = $this->input->post('telephone', TRUE);
 		$data['postcode'] = $this->input->post('postcode', TRUE);
 		$data['password'] = $this->input->post('password', TRUE);

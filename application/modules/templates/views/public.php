@@ -43,7 +43,7 @@
 							<a href="<?php echo base_url(); ?>member/register" class="button is-primary">
 								<strong>Sign up</strong>
 							</a>
-							<a class="button is-light">
+							<a href="<?php echo base_url(); ?>member/login" class="button is-light">
 								Log in
 							</a>
 						</div>
@@ -56,6 +56,13 @@
 	<main role="main">
 		<div class="container">
 			<?php 
+			$this->load->module("site_security");
+			$user_id = $this->site_security->_get_user_id();
+			if(isset($user_id) && $view_module == "member") {
+				echo "<div class='columns'>";
+				echo Modules::run("templates/_draw_customer_nav", ["user_id" => $user_id]);
+			}
+
 			if(isset($page_content)) {
 				echo  nl2br($page_content);
 
@@ -72,10 +79,15 @@
 			} elseif(isset($view_file)) {
 				$this->load->view($view_module."/".$view_file);
 			}
+
+			if(isset($user_id)) {
+				echo "</div>";
+			}
+
 			?>
 		</div>
 
-		<footer class="footer">
+		<footer class="footer" style="margin-top: 50px;">
 			<div class="content has-text-centered">
 				<p>
 					<strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed

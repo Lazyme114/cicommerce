@@ -21,6 +21,7 @@ class Site_security extends MX_Controller
 	{
 		$user_id = $this->_get_user_id();
 		if(!is_numeric($user_id)) {
+			$this->session->set_userdata('user_id', $user_id);
 			$redirect('members/login','refresh');
 		}
 	}
